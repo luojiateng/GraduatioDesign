@@ -1,4 +1,4 @@
-package com.jiateng.network;
+package com.jiateng.common.bean;
 
 import lombok.Data;
 

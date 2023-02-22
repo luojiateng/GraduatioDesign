@@ -1,6 +1,6 @@
-package com.jiateng.network.api;
+package com.jiateng.api;
 
-import com.jiateng.network.ResponseDate;
+import com.jiateng.common.bean.ResponseDate;
 import com.jiateng.bean.Order;
 
 import org.androidannotations.annotations.rest.Get;

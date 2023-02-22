@@ -15,7 +15,7 @@ import com.jiateng.activity.ShopActivity;
 import com.jiateng.adapter.OrderAdapter;
 import com.jiateng.bean.Order;
 import com.jiateng.common.base.BaseFragment;
-import com.jiateng.network.RetrofitUtils;
+import com.jiateng.common.utils.RetrofitUtils;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
