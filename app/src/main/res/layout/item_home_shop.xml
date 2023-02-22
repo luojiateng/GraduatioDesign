@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/front_color"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/normal_space"
+        android:layout_marginBottom="@dimen/normal_space"
+        android:background="@color/front_color"
+        android:orientation="horizontal">
+
+        <!--TODO 图片样式修改-->
+        <ImageView
+            android:id="@+id/shop_img"
+            android:layout_width="135dp"
+            android:layout_height="135dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_test" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:paddingLeft="@dimen/normal_space">
+
+            <TextView
+                android:id="@+id/list_item_shop_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="@dimen/normal_space"
+                android:text="@string/example_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_phone_title_size" />
+
+            <TextView
+                android:id="@+id/list_item_shop_monthlySales_tag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/list_item_shop_name"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="@dimen/little_space"
+                android:text="月售："
+                android:textColor="@color/gray"
+                android:textSize="@dimen/text_phone_context_size" />
+
+            <TextView
+                android:id="@+id/list_item_shop_monthlySales"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/list_item_shop_name"
+                android:layout_marginTop="@dimen/little_space"
+                android:layout_toRightOf="@+id/list_item_shop_monthlySales_tag"
+                android:text="123"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/text_phone_context_size" />
+
+            <TextView
+                android:id="@+id/list_item_shop_space_tag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/list_item_shop_monthlySales"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="@dimen/little_space"
+                android:text="位置："
+                android:textColor="@color/gray"
+                android:textSize="@dimen/text_phone_context_size" />
+
+            <TextView
+                android:id="@+id/list_item_shop_space"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/list_item_shop_monthlySales"
+                android:layout_marginTop="@dimen/little_space"
+                android:layout_toRightOf="@+id/list_item_shop_space_tag"
+                android:text="东区食堂一楼2号窗口"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/text_phone_context_size" />
+
+
+            <TextView
+                android:id="@+id/list_item_shop_TimeTag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/list_item_shop_space"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="@dimen/normal_space"
+                android:text="营业时间："
+                android:textColor="@color/gray"
+                android:textSize="@dimen/text_phone_context_size" />
+
+            <TextView
+                android:id="@+id/list_item_shop_openTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/list_item_shop_space"
+                android:layout_marginTop="@dimen/normal_space"
+                android:layout_toRightOf="@+id/list_item_shop_TimeTag"
+                android:text="7:00-12:00 14:00-22:00"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/text_phone_context_size" />
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

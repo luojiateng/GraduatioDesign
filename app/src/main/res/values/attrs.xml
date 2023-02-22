@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="UserItemView">
+        <attr name="itemImage" format="reference|integer" />
+        <attr name="itemText" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="AppTitleView">
+        <attr name="tip" format="string" />
+        <attr name="title" format="string" />
+        <attr name="visible" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="OrderInfoView">
+        <attr name="front" format="string" />
+        <attr name="mid" format="string" />
+        <attr name="back" format="string" />
+    </declare-styleable>
+
+</resources>

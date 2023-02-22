@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/height_title"
+    android:background="@color/app_main_color"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/title_template"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_title">
+
+        <ImageView
+            android:id="@+id/title_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/normal_space"
+            android:src="@drawable/ic_arrow_left_white" />
+
+        <TextView
+            android:id="@+id/title_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/normal_space"
+            android:layout_toRightOf="@id/title_image"
+            android:text=""
+            android:textColor="@color/background"
+            android:textSize="@dimen/text_phone_context_size" />
+
+        <TextView
+            android:id="@+id/title_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text=""
+            android:textColor="@color/background"
+            android:textSize="@dimen/text_phone_title_size" />
+
+
+    </RelativeLayout>
+
+</LinearLayout>

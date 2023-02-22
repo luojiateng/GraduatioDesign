@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/normal_space"
+        android:paddingTop="@dimen/normal_space"
+        android:paddingRight="@dimen/normal_space">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--位置-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="西安石油大学鄠邑校区"
+                android:textSize="@dimen/text_phone_title_size" />
+            <!--消息-->
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_comments_1" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/middle_space"
+            android:orientation="vertical">
+            <!--搜索框-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_search"
+                android:drawableLeft="@drawable/ic_search"
+                android:drawablePadding="@dimen/normal_space"
+                android:gravity="center|left"
+                android:text="@string/searchTitle"
+                android:textSize="@dimen/text_phone_title_size" />
+
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                android:orientation="vertical">-->
+            <!--                &lt;!&ndash;轮播图&ndash;&gt;-->
+            <!--                <ViewFlipper-->
+            <!--                    android:id="@+id/home_vf"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="180dp"-->
+            <!--                    android:layout_marginTop="@dimen/normal_space"-->
+            <!--                    android:background="@drawable/shape_little_cirle" />-->
+            <!--                &lt;!&ndash;公告区域&ndash;&gt;-->
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="match_parent"-->
+            <!--                    android:layout_marginTop="@dimen/normal_space"-->
+            <!--                    android:background="@drawable/shape_search"-->
+            <!--                    android:orientation="horizontal">-->
+
+            <!--                    <ImageView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_gravity="left|center"-->
+            <!--                        android:scaleType="fitXY"-->
+            <!--                        android:src="@drawable/ic_tongzhi" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="match_parent"-->
+            <!--                        android:layout_height="52dp"-->
+            <!--                        android:gravity="center|left|top"-->
+            <!--                        android:layout_margin="@dimen/normal_space"-->
+            <!--                        android:text="@string/notification"-->
+            <!--                        android:textSize="@dimen/text_phone_context_size" />-->
+            <!--                </LinearLayout>-->
+            <!--                &lt;!&ndash;筛选框&ndash;&gt;-->
+
+
+            <!--                &lt;!&ndash;店铺列表&ndash;&gt;-->
+            <!--                <ListView-->
+            <!--                    android:id="@+id/list_item_shop"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginTop="@dimen/normal_space"-->
+            <!--                    android:divider="@null"-->
+            <!--                    android:listSelector="@android:color/transparent"-->
+            <!--                    android:overScrollMode="never"-->
+            <!--                    android:scrollbars="none" />-->
+            <!--            </LinearLayout>-->
+            <!--            -->
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

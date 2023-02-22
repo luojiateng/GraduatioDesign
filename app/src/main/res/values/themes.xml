@@ -1,0 +1,62 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.OrderFood" parent="Theme.MaterialComponents.DayNight.DarkActionBar.Bridge">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <!--标题栏延伸到状态栏-->
+    <style name="MDTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/white</item>
+    </style>
+
+
+    <style name="bottomRadioButton">
+        <item name="android:textSize">@dimen/text_phone_context_size</item>
+        <item name="android:gravity">center</item>
+        <item name="android:drawablePadding">2dp</item>
+        <item name="android:button">@null</item>
+        <item name="android:textColor">@color/selector_color_main_button_index</item>
+    </style>
+
+    <style name="appraiseStyle">
+        <item name="android:textSize">@dimen/text_phone_context_size</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginLeft">@dimen/middle_space</item>
+        <item name="android:layout_marginRight">@dimen/middle_space</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:drawablePadding">2dp</item>
+        <item name="android:background">@drawable/selector_appraise_bar_background</item>
+        <item name="android:button">@null</item>
+        <item name="android:textColor">@color/selector_color_appraise_all</item>
+    </style>
+
+    <style name="userItemSetting">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/normal_input_height</item>
+        <item name="android:gravity">center|left</item>
+        <item name="android:textSize">@dimen/text_phone_title_size</item>
+        <item name="android:drawablePadding">@dimen/normal_space</item>
+        <item name="android:paddingLeft">@dimen/normal_space</item>
+    </style>
+
+    <style name="orderInfoSplitLine">
+        <item name="android:layout_width">22dp</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:background">@color/app_main_color</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+</resources>

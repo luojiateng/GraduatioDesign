@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_marginTop="@dimen/normal_space"
+        android:layout_width="match_parent"
+        android:layout_height="108dp"
+        android:layout_marginLeft="@dimen/normal_space"
+        android:layout_marginRight="@dimen/normal_space"
+        android:background="@color/front_color">
+
+        <TextView
+            android:id="@+id/shop_business_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/normal_space"
+            android:layout_marginTop="@dimen/normal_space"
+            android:text="西安石油大学兰州拉面"
+            android:textSize="@dimen/text_phone_title_size" />
+
+        <TextView
+            android:id="@+id/shop_business_time_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/shop_business_name"
+            android:layout_marginLeft="@dimen/normal_space"
+            android:layout_marginTop="@dimen/normal_space"
+            android:text="营业时间:"
+            android:textSize="@dimen/text_phone_context_size" />
+
+        <TextView
+            android:id="@+id/shop_business_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/shop_business_name"
+            android:layout_marginLeft="@dimen/normal_space"
+            android:layout_marginTop="@dimen/normal_space"
+            android:layout_toRightOf="@id/shop_business_time_label"
+            android:text="周一至周日 10:00-22:00"
+            android:textSize="@dimen/text_phone_context_size" />
+
+        <TextView
+            android:id="@+id/shop_business_local_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/shop_business_time_label"
+            android:layout_marginLeft="@dimen/normal_space"
+            android:layout_marginTop="@dimen/normal_space"
+            android:text="位置"
+            android:textSize="@dimen/text_phone_context_size" />
+
+        <TextView
+            android:id="@+id/shop_business_local"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/shop_business_time"
+            android:layout_marginLeft="@dimen/normal_space"
+            android:layout_marginTop="@dimen/normal_space"
+            android:layout_toRightOf="@id/shop_business_local_label"
+            android:text="东区食堂一楼2号窗口"
+            android:textSize="@dimen/text_phone_context_size" />
+
+        <!--TODO 设置电话图标-->
+        <ImageView
+            android:id="@+id/shop_business_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/normal_space"
+            android:layout_marginRight="@dimen/normal_space"
+            android:src="@drawable/ic_discount_fill" />
+    </RelativeLayout>
+
+</LinearLayout>

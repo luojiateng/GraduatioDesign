@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_split_horizontal_full" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/normal_space"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/shop_attitude"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="4.9"
+                android:textColor="@color/phone_text_red"
+                android:textSize="@dimen/text_phone_title_size" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="服务态度"
+                android:textColor="@color/phone_text_black"
+                android:textSize="@dimen/text_phone_title_size" />
+
+
+        </LinearLayout>
+
+        <include layout="@layout/layout_split_vertical_full" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/shop_goods_quality"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="4.9"
+                android:textColor="@color/phone_text_red"
+                android:textSize="@dimen/text_phone_title_size" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="饭菜质量"
+                android:textColor="@color/phone_text_black"
+                android:textSize="@dimen/text_phone_title_size" />
+        </LinearLayout>
+
+        <include layout="@layout/layout_split_vertical_full" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/shop_post_speed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="20"
+                android:textColor="@color/phone_text_red"
+                android:textSize="@dimen/text_phone_title_size" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="配送速度"
+                android:textColor="@color/phone_text_black"
+                android:textSize="@dimen/text_phone_title_size" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/normal_space"
+        android:layout_marginRight="@dimen/normal_space"
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:id="@+id/appraise_choose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="@dimen/normal_space"
+            android:layout_marginBottom="@dimen/normal_space"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/appraise_all"
+                style="@style/appraiseStyle"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:text="全部" />
+
+            <RadioButton
+                android:id="@+id/appraise_good"
+                style="@style/appraiseStyle"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:text="好评" />
+
+            <RadioButton
+                android:id="@+id/appraise_bad"
+                style="@style/appraiseStyle"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:text="差评" />
+        </RadioGroup>
+
+        <ListView
+            android:id="@+id/appraise_listView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never"
+            android:scrollbars="none">
+
+        </ListView>
+    </LinearLayout>
+
+
+</LinearLayout>

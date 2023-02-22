@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/front_color"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="1dp"
+        android:background="#eeeeee"
+        android:gravity="center"
+        android:text="购物车"
+        android:textSize="20dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/normal_space"
+            android:gravity="center"
+            android:text="已选商品"
+            android:textColor="@color/phone_text_black"
+            android:textSize="@dimen/text_phone_context_size" />
+
+        <TextView
+            android:id="@+id/cleanShoppingCart"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/normal_space"
+            android:drawableLeft="@drawable/ic_arrow_right"
+            android:drawablePadding="@dimen/little_space"
+            android:gravity="center"
+            android:text="清空"
+            android:textColor="@color/phone_text_black"
+            android:textSize="@dimen/text_phone_context_size" />
+
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/car_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@null"
+        android:listSelector="@android:color/transparent"
+        android:overScrollMode="never"
+        android:scrollbars="none" />
+</LinearLayout>

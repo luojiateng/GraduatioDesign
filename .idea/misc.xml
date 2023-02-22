@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/drawable-v24/color_main_button_index.xml" value="0.2234375" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2234375" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/drawable-v24/main_home_seletor.xml" value="0.15" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/drawable-v24/main_mine_seletor.xml" value="0.22592592592592592" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/drawable-v24/main_order_seletor.xml" value="0.22592592592592592" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/drawable-v24/main_shop_seletor.xml" value="0.15" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/drawable-v24/main_text_color.xml" value="0.2234375" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/drawable-v24/selector_appraise_color_all.xml" value="0.2234375" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/drawable-v24/selector_main_home.xml" value="0.24114583333333334" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/drawable-v24/selector_main_order.xml" value="0.24114583333333334" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/drawable-v24/selector_main_user.xml" value="0.24114583333333334" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/drawable-v24/selector_shop_collect.xml" value="0.2234375" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/drawable-v24/shape_appraise_checked.xml" value="0.20572916666666666" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/drawable-v24/shape_appraise_unchecked.xml" value="0.20572916666666666" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/drawable-v24/shape_avatar.xml" value="0.24114583333333334" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/drawable-v24/shape_common_background.xml" value="0.2234375" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/drawable-v24/shape_little_cirle.xml" value="0.8" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/drawable-v24/shape_little_cirle_blue.xml" value="0.20572916666666666" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/drawable-v24/shape_search.xml" value="0.22592592592592592" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/drawable-v24/shape_touxiang.xml" value="0.24114583333333334" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/drawable-v24/shape_user_item.xml" value="0.2234375" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/drawable/selector_appraise_all.xml" value="0.24114583333333334" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_goods.xml" value="0.264" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_home_test.xml" value="0.22083333333333333" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_list_goods_home.xml" value="0.4" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_list_order_home.xml" value="0.264" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_list_shop_home.xml" value="0.4" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_order_info.xml" value="0.264" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_setting.xml" value="0.264" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_shop.xml" value="0.264" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_user_address.xml" value="0.22083333333333333" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_user_feedback.xml" value="0.22083333333333333" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_user_login.xml" value="0.264" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_user_more.xml" value="0.22083333333333333" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_user_setting.xml" value="0.22083333333333333" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_user_star.xml" value="0.22083333333333333" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_welcome.xml" value="0.22083333333333333" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/fragment_appraise.xml" value="0.264" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/fragment_business.xml" value="0.4" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/fragment_goods.xml" value="0.264" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/fragment_home.xml" value="0.2074074074074074" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/fragment_order.xml" value="0.203125" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/fragment_user.xml" value="0.4" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/home_banner.xml" value="0.22083333333333333" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/item_cars.xml" value="0.264" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/item_goods_appraise.xml" value="0.4" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/item_goods_left.xml" value="0.203125" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/item_goods_right.xml" value="0.450199203187251" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/item_home_shop.xml" value="0.18981481481481483" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/item_list_order_order.xml" value="0.4" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/item_list_shop_home.xml" value="0.34210526315789475" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/layout_bottom_sheet.xml" value="0.203125" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/layout_split_line_short.xml" value="0.22083333333333333" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/layout_split_vertical_full.xml" value="0.22083333333333333" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/sub_split_line.xml" value="0.22083333333333333" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/unit_split_full_line.xml" value="0.22083333333333333" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/unit_split_short_line.xml" value="0.22083333333333333" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/view_common_title.xml" value="0.264" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/view_goods_head.xml" value="0.203125" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/view_order_info.xml" value="0.264" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/view_split_line_full.xml" value="0.22083333333333333" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/view_split_line_little.xml" value="0.2" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/view_split_line_short.xml" value="0.22083333333333333" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/view_user_item.xml" value="0.264" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2234375" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1537037037037037" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

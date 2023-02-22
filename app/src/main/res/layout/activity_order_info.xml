@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:AppTitleView="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:OrderInfoView="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context="com.jiateng.activity.OrderInfoActivity">
+
+    <com.jiateng.common.widget.AppTitleView
+        android:id="@+id/title_orderInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        AppTitleView:title="订单详情"
+        AppTitleView:visible="true" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/normal_space"
+        android:layout_marginRight="@dimen/normal_space"
+        android:layout_marginBottom="@dimen/normal_space"
+        android:background="@color/background"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/normal_space"
+            android:background="@color/front_color"
+            android:orientation="vertical">
+
+            <!--配送进程-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_common_background"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"
+                    android:background="@color/front_color"
+                    android:drawableRight="@drawable/ic_arrow_right"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/normal_space"
+                    android:text="配送进程"
+                    android:textSize="@dimen/text_phone_title_size" />
+
+                <include layout="@layout/layout_split_horizontal_short" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/front_color"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/normal_space">
+
+                    <TextView
+                        android:id="@+id/user_put_order"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableTop="@drawable/ic_put_order_1"
+                        android:drawablePadding="@dimen/little_space"
+                        android:gravity="center"
+                        android:text="订单提交"
+                        android:textSize="@dimen/text_phone_tip_size" />
+
+                    <View style="@style/orderInfoSplitLine" />
+
+
+                    <TextView
+                        android:id="@+id/boss_get_order"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableTop="@drawable/ic_get_order_1"
+                        android:drawablePadding="@dimen/little_space"
+                        android:gravity="center"
+                        android:text="商家接单"
+                        android:textSize="@dimen/text_phone_tip_size" />
+
+                    <View style="@style/orderInfoSplitLine" />
+
+                    <TextView
+                        android:id="@+id/post_order"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableTop="@drawable/ic_post_1"
+                        android:drawablePadding="@dimen/little_space"
+                        android:gravity="center"
+                        android:text="配送中"
+                        android:textSize="@dimen/text_phone_tip_size" />
+
+                    <View style="@style/orderInfoSplitLine" />
+
+                    <TextView
+                        android:id="@+id/finish_order"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableTop="@drawable/ic_finish_1"
+                        android:drawablePadding="@dimen/little_space"
+                        android:gravity="center"
+                        android:text="订单完成"
+                        android:textSize="@dimen/text_phone_tip_size" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--TODO 未送达之前为手动送达按键，送达之后为点评按键-->
+            <!--商家未接单的时候为取消订单，接单之后为送达，完成之后为点评-->
+            <Button
+                android:id="@+id/order_status_checkout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/normal_space"
+                android:background="@color/app_main_color"
+                android:text="点评"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_phone_context_size" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/normal_space"
+                android:background="@drawable/shape_common_background"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/order_item_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_space"
+                    android:background="@color/front_color"
+                    android:drawableRight="@drawable/ic_arrow_right"
+                    android:text="户县软面"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_phone_title_size" />
+
+                <include layout="@layout/layout_split_horizontal_short" />
+
+                <!--TODO 完成订单布局设计-->
+                <com.jiateng.common.widget.OrderInfoView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    OrderInfoView:back="¥12"
+                    OrderInfoView:front="青椒炒鸡蛋盖饭"
+                    OrderInfoView:mid="x1" />
+
+                <com.jiateng.common.widget.OrderInfoView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    OrderInfoView:back="¥10"
+                    OrderInfoView:front="肉丝干拌面"
+                    OrderInfoView:mid="x1" />
+
+                <com.jiateng.common.widget.OrderInfoView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    OrderInfoView:back="¥3"
+                    OrderInfoView:front="可口可乐"
+                    OrderInfoView:mid="x1" />
+
+                <include layout="@layout/layout_split_horizontal_short" />
+
+                <com.jiateng.common.widget.OrderInfoView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    OrderInfoView:back="¥9"
+                    OrderInfoView:front="小计" />
+
+                <com.jiateng.common.widget.OrderInfoView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    OrderInfoView:back="¥9"
+                    OrderInfoView:front="包装" />
+
+                <com.jiateng.common.widget.OrderInfoView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    OrderInfoView:back="¥9"
+                    OrderInfoView:front="配送" />
+
+                <com.jiateng.common.widget.OrderInfoView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    OrderInfoView:back="¥9"
+                    OrderInfoView:front="总计" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/callBossPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/normal_space"
+                android:layout_marginBottom="@dimen/normal_space"
+                android:background="@drawable/shape_little_cirle"
+                android:text="致电商家"
+                android:textSize="@dimen/text_phone_context_size" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/large_space"
+                android:layout_marginBottom="@dimen/large_space"
+                android:background="@drawable/shape_common_background"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_space"
+                    android:gravity="left"
+                    android:text="订单信息"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_phone_title_size" />
+
+                <include layout="@layout/layout_split_horizontal_short" />
+
+                <com.jiateng.common.widget.OrderInfoView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    OrderInfoView:back="1673751964000"
+                    OrderInfoView:front="订单号码" />
+
+                <com.jiateng.common.widget.OrderInfoView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    OrderInfoView:back="2023年1月15日12:01:40"
+                    OrderInfoView:front="下单时间" />
+
+                <com.jiateng.common.widget.OrderInfoView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    OrderInfoView:back="2023年1月15日13:01:40"
+                    OrderInfoView:front="支付时间" />
+
+                <com.jiateng.common.widget.OrderInfoView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    OrderInfoView:back="陕西省 西安市 鄠邑区\n西安石油大学鄠邑校区\n十七号宿舍楼 447宿舍"
+                    OrderInfoView:front="配送地址" />
+
+                <com.jiateng.common.widget.OrderInfoView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    OrderInfoView:back="(来一颗蒜)"
+                    OrderInfoView:front="备注信息" />
+
+                <com.jiateng.common.widget.OrderInfoView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    OrderInfoView:back="马邦德 (18092429450)"
+                    OrderInfoView:front="联系信息" />
+
+                <com.jiateng.common.widget.OrderInfoView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    OrderInfoView:back="在线支付"
+                    OrderInfoView:front="支付方式" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

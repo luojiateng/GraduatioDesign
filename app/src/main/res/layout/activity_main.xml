@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.jiateng.activity.MainActivity"
+    android:fitsSystemWindows="true">
+
+    <FrameLayout
+        android:id="@+id/main_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <RadioGroup
+        android:id="@+id/main_index"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal">
+        <!--使用单选按钮实现底部导航栏
+                在themes资源文件中自定义资源样式，实现底部按钮资源统一管理-->
+        <RadioButton
+            android:id="@+id/main_home"
+            style="@style/bottomRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/selector_main_home"
+            android:text="@string/home" />
+
+        <RadioButton
+            android:id="@+id/main_order"
+            style="@style/bottomRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/selector_main_order"
+            android:text="@string/order" />
+
+        <RadioButton
+            android:id="@+id/main_user"
+            style="@style/bottomRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/selector_main_user"
+            android:text="@string/user" />
+    </RadioGroup>
+
+</LinearLayout>
