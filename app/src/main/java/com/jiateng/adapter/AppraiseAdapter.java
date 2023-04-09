@@ -10,11 +10,10 @@ import android.widget.TextView;
 import androidx.appcompat.widget.AppCompatImageView;
 
 import com.jiateng.R;
+import com.jiateng.domain.Appraise;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
-
-import com.jiateng.bean.Appraise;
 
 /**
  * @Description:
@@ -65,8 +64,8 @@ public class AppraiseAdapter extends BaseAdapter {
         appraiseContext = view.findViewById(R.id.appraise_context);
         Appraise appraise = data.get(position);
 
-        Picasso.get().load(appraise.getAvatarUrl()).fit().into(imageView);
-        username.setText(appraise.getUserName());
+        Picasso.get().load(appraise.getOrder().getUser().getAvatarUrl()).fit().into(imageView);
+        username.setText(appraise.getOrder().getUser().getUsername());
         time.setText(appraise.getTime());
         appraiseContext.setText(appraise.getContext());
         star.setText(appraise.getServeScore() + "");

@@ -11,8 +11,8 @@ import android.widget.TextView;
 import androidx.appcompat.widget.AppCompatImageView;
 
 import com.jiateng.R;
-import com.jiateng.bean.ShoppingCart;
-import com.jiateng.common.utils.PicassoUtil;
+import com.jiateng.domain.ShoppingCart;
+import com.jiateng.utils.PicassoUtil;
 
 import java.util.List;
 
@@ -57,12 +57,12 @@ public class ShoppingCartAdapter extends BaseAdapter {
         ImageView addButton = itemView.findViewById(R.id.carAddGoods);
 
         AppCompatImageView image = itemView.findViewById(R.id.shoppingCart_img);
-        PicassoUtil.setImage(shoppingCartData.get(position).getGoodsImgUrl(), image);
+        PicassoUtil.setImage(shoppingCartData.get(position).getGoods().getGoodsImageUrl(), image);
 
-        goodsName.setText(shoppingCartData.get(position).getGoodsName());
+        goodsName.setText(shoppingCartData.get(position).getGoods().getGoodName());
         shoppingCartCount.setText(shoppingCartData.get(position).getGoodsCount() + "");
         double moneyCount = 0.0;
-        moneyCount += shoppingCartData.get(position).getGoodsPrice().doubleValue() * shoppingCartData.get(position).getGoodsCount().intValue();
+        moneyCount += shoppingCartData.get(position).getGoods().getPrice().doubleValue() * shoppingCartData.get(position).getGoodsCount().intValue();
         shoppingCartPrice.setText(moneyCount + "");
         reduceButton.setOnClickListener(v -> onSelectListener.onSelectReduce(position));
         addButton.setOnClickListener(v -> onSelectListener.onSelectAdd(position, shoppingCartData.get(position)));

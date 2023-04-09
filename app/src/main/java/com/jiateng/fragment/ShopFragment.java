@@ -24,16 +24,18 @@ import com.jiateng.activity.GoodsActivity;
 import com.jiateng.adapter.ShopRecyclerHolder;
 import com.jiateng.adapter.ShopRecyclerViewAdater;
 import com.jiateng.adapter.ShoppingCartAdapter;
-import com.jiateng.bean.ShopInfo;
-import com.jiateng.bean.ShoppingCart;
-import com.jiateng.bean.StoreBean;
 import com.jiateng.common.base.BaseFragment;
-import com.jiateng.common.utils.PicassoUtil;
-import com.jiateng.common.utils.SharedPreferencesUtil;
-import com.jiateng.db.impl.ShoppingCartImpl;
+import com.jiateng.db.impl.ShoppingCartDaoImpl;
+import com.jiateng.domain.Shop;
+import com.jiateng.domain.ShoppingCart;
+import com.jiateng.domain.StoreBean;
+import com.jiateng.domain.User;
+import com.jiateng.utils.PicassoUtil;
+import com.jiateng.utils.SharedPreferencesUtil;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -55,19 +57,18 @@ public class ShopFragment extends BaseFragment {
     @ViewInject(R.id.goods_price)
     private TextView goodsPrice;
     private List<ShoppingCart> shoppingCartsData;
-    private ShoppingCartImpl shoppingCartDao;
-    private String userId;
-    private String shopId;
+    private ShoppingCartDaoImpl shoppingCartDao;
+    private Integer userId;
+    private Integer shopId;
     private ShoppingCartAdapter adapter;
-
     private List<StoreBean.Goods> goodsList;
 
 
-    public ShopFragment(ShopInfo shopInfo) {
+    public ShopFragment(ArrayList<StoreBean.Goods> goodsList) {
         super();
-        this.shopId = shopInfo.getShopId();
-        this.userId = SharedPreferencesUtil.getString(context, "userId", null);
-        this.goodsList = shopInfo.getGoodsList();
+        this.shopId = goodsList.get(0).getShop().getShopId();
+        this.userId = SharedPreferencesUtil.getInt(context, "userId", 1);
+        this.goodsList = goodsList;
     }
 
 
@@ -78,7 +79,7 @@ public class ShopFragment extends BaseFragment {
         initGoodsData();
         initGoodsView();
         initGoodsListener();
-        shoppingCartDao = ShoppingCartImpl.getInstance(context);
+        shoppingCartDao = ShoppingCartDaoImpl.getInstance();
         carInfo.setOnClickListener(v -> {
             shoppingCartsData = shoppingCartDao.queryByGoodsByUserIdShopId(userId, shopId);
             showBottomSheet();
@@ -92,8 +93,8 @@ public class ShopFragment extends BaseFragment {
         super.onStart();
         rAdapter.notifyDataSetChanged();
         ShoppingCart shoppingCart = new ShoppingCart();
-        shoppingCart.setUserId(userId);
-        shoppingCart.setShopId(shopId);
+        shoppingCart.setUser(new User(userId));
+        shoppingCart.setShop(new Shop(shopId));
         goodsPrice.setText(getShopPrice(shoppingCart));
     }
 
@@ -215,22 +216,20 @@ public class ShopFragment extends BaseFragment {
      */
     private void initGoodsListener() {
         rAdapter.setShoppingItemClickListener(new ShopRecyclerViewAdater.ShoppingItemClickListener() {
-
             @Override
             public void addClick(ShopRecyclerHolder holder, List<StoreBean.Goods> data, int position) {
 //                String goods  Id = data.get(position).getCategory() + data.get(position).getName();
 //                double price = Double.parseDouble(((TextView) holder.getView(R.id.tvPrice)).getText().toString());
-                ShoppingCart shoppingCart = new ShoppingCart(null, userId, shopId, data.get(position).getGoodsId(), data.get(position).getName(), data.get(position).getPrice(), data.get(position).getGoodsImgUrl(), 1);
+                ShoppingCart shoppingCart = new ShoppingCart(new User(userId), data.get(position).getShop(), data.get(position), 1);
                 shoppingCartDao.insertGoods(shoppingCart);
                 ((ImageView) holder.getView(R.id.addToCar)).setVisibility(View.VISIBLE);
                 ((TextView) holder.getView(R.id.carCount)).setText(shoppingCartDao.queryOne(shoppingCart).getGoodsCount() + "");
                 goodsPrice.setText(getShopPrice(shoppingCart));
                 rAdapter.notifyDataSetChanged();
             }
-
             @Override
             public void reduceClick(ShopRecyclerHolder holder, List<StoreBean.Goods> data, int position) {
-                ShoppingCart shoppingCart = new ShoppingCart(null, userId, shopId, data.get(position).getGoodsId(), data.get(position).getName(), data.get(position).getPrice(), data.get(position).getGoodsImgUrl(), 1);
+                ShoppingCart shoppingCart = new ShoppingCart(new User(userId), new Shop(shopId), data.get(position), 1);
                 shoppingCartDao.deleteGoods(shoppingCart);
                 ((TextView) holder.getView(R.id.carCount)).setText(shoppingCartDao.queryOne(shoppingCart) == null ? "" : shoppingCartDao.queryOne(shoppingCart).getGoodsCount() + "");
                 goodsPrice.setText(getShopPrice(shoppingCart));
@@ -285,9 +284,10 @@ public class ShopFragment extends BaseFragment {
 
     private String getShopPrice(ShoppingCart shoppingCart) {
         double money = 0.0;
-        List<ShoppingCart> shoppingCarts = shoppingCartDao.queryByGoodsByUserIdShopId(shoppingCart.getUserId(), shoppingCart.getShopId());
+        List<ShoppingCart> shoppingCarts = shoppingCartDao.queryByGoodsByUserIdShopId(shoppingCart.getUser().getUserId(), shoppingCart.getShop().getShopId());
+        System.out.println(shoppingCarts);
         for (ShoppingCart cart : shoppingCarts) {
-            money = money + cart.getGoodsPrice().doubleValue() * cart.getGoodsCount().intValue();
+            money = money + cart.getGoods().getPrice().doubleValue() * cart.getGoodsCount().intValue();
         }
         return String.format("%.1f", money);
     }
@@ -320,7 +320,7 @@ public class ShopFragment extends BaseFragment {
 
         @Override
         public void convert(ShopRecyclerHolder holder, final int position) {
-            TextView tv = ((TextView) holder.getView(R.id.tv));
+            TextView tv = holder.getView(R.id.tv);
             tv.setText(getmData().get(position).getCategory());
             if (checked == position) {
                 tv.setTextColor(ContextCompat.getColor(context, R.color.colorPrimary));
@@ -352,7 +352,6 @@ public class ShopFragment extends BaseFragment {
                     return;
                 }
             }
-
         }
 
         private void moveToPosition(int index) {
@@ -375,16 +374,16 @@ public class ShopFragment extends BaseFragment {
 
         @Override
         public void convert(ShopRecyclerHolder holder, final int position) {
-            ((TextView) holder.getView(R.id.tvName)).setText(getmData().get(position).getName());
+            ((TextView) holder.getView(R.id.tvName)).setText(getmData().get(position).getGoodName());
             ((TextView) holder.getView(R.id.tvPrice)).setText(String.format("%.1f", getmData().get(position).getPrice()));
             ((TextView) holder.getView(R.id.shop_goods_count)).setText(getmData().get(position).getCount() + "");
-            PicassoUtil.setImage(getmData().get(position).getGoodsImgUrl(), (AppCompatImageView) holder.getView(R.id.tv_image));
+            PicassoUtil.setImage(getmData().get(position).getGoodsImageUrl(), (AppCompatImageView) holder.getView(R.id.tv_image));
 
             ImageView add = holder.getView(R.id.addToCar);
             TextView addCount = holder.getView(R.id.carCount);
             ImageView reduce = holder.getView(R.id.reduceFromCar);
-            goodsId = getmData().get(position).getCategory() + getmData().get(position).getName();
-            ShoppingCart shoppingCart = new ShoppingCart(null, userId, shopId, getmData().get(position).getGoodsId(), getmData().get(position).getName(), getmData().get(position).getPrice(), getmData().get(position).getGoodsImgUrl(), 1);
+            goodsId = getmData().get(position).getCategory() + getmData().get(position).getGoodName();
+            ShoppingCart shoppingCart = new ShoppingCart(new User(userId), new Shop(shopId), getmData().get(position), 1);
             ShoppingCart goods = shoppingCartDao.queryOne(shoppingCart);
             if (goods == null) {
                 reduce.setVisibility(View.GONE);

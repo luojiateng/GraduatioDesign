@@ -41,6 +41,7 @@
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_user_setting.xml" value="0.22083333333333333" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_user_star.xml" value="0.22083333333333333" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_welcome.xml" value="0.22083333333333333" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/banner_home.xml" value="0.22083333333333333" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/fragment_appraise.xml" value="0.264" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/fragment_business.xml" value="0.4" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/fragment_goods.xml" value="0.264" />
@@ -51,8 +52,9 @@
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/item_cars.xml" value="0.264" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/item_goods_appraise.xml" value="0.4" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/item_goods_left.xml" value="0.203125" />
-        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/item_goods_right.xml" value="0.450199203187251" />
-        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/item_home_shop.xml" value="0.18981481481481483" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/item_goods_right.xml" value="0.264" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/item_home_shop.xml" value="0.2" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/item_home_shop_1.xml" value="0.176" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/item_list_order_order.xml" value="0.4" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/item_list_shop_home.xml" value="0.34210526315789475" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/layout_bottom_sheet.xml" value="0.203125" />

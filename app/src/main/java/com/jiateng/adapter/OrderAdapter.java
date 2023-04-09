@@ -7,7 +7,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.jiateng.R;
-import com.jiateng.bean.Order;
+import com.jiateng.domain.Order;
 
 import java.util.List;
 
@@ -58,7 +58,7 @@ public class OrderAdapter extends BaseAdapter {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_order_order, null);
 
         TextView tv_name = itemView.findViewById(R.id.order_item_shopInfo);
-        tv_name.setText(orderList.get(position).getShopName());
+        tv_name.setText(orderList.get(position).getShop().getShopName());
         tv_name.setTag(position);
 
         TextView tv_paid = itemView.findViewById(R.id.order_item_pay);
@@ -70,7 +70,7 @@ public class OrderAdapter extends BaseAdapter {
         tv_status.setTag(position);
 
         TextView tv_time = itemView.findViewById(R.id.order_item_time);
-        tv_time.setText(orderList.get(position).getFinishTimeOfOrder());
+        tv_time.setText(orderList.get(position).getStartTimeOfOrder());
         tv_time.setTag(position);
 
         shopName = itemView.findViewById(R.id.order_item_shopInfo);

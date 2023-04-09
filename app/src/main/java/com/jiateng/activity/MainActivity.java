@@ -10,8 +10,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.jiateng.R;
-import com.jiateng.common.utils.MockData;
-import com.jiateng.common.utils.SharedPreferencesUtil;
+import com.jiateng.utils.MockData;
+import com.jiateng.utils.SharedPreferencesUtil;
 import com.jiateng.fragment.HomeFragment;
 import com.jiateng.fragment.OrderFragment;
 import com.jiateng.fragment.UserFragment;
@@ -39,7 +39,7 @@ public class MainActivity extends FragmentActivity implements RadioGroup.OnCheck
         setContentView(R.layout.activity_main);
         ViewUtils.inject(this);
 
-        SharedPreferencesUtil.putString(MainActivity.this, "userId", MockData.getUserId());
+        SharedPreferencesUtil.putInt(MainActivity.this, "userId", 1);
 
         fragmentManager = getSupportFragmentManager();
 

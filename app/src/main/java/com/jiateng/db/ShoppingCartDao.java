@@ -1,6 +1,6 @@
 package com.jiateng.db;
 
-import com.jiateng.bean.ShoppingCart;
+import com.jiateng.domain.ShoppingCart;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface ShoppingCartDao {
 
-    List<ShoppingCart> queryByGoodsByUserIdShopId(String userId, String shopId);
+    List<ShoppingCart> queryByGoodsByUserIdShopId(Integer userId, Integer shopId);
 
     ShoppingCart queryOne(ShoppingCart shoppingCart);
 
@@ -23,5 +23,5 @@ public interface ShoppingCartDao {
 
     int updateGoods(ShoppingCart shoppingCart, int opear);
 
-    void clean(String userId,String shopId);
+    void clean(Integer userId,Integer shopId);
 }

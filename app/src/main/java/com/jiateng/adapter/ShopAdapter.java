@@ -7,10 +7,9 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.jiateng.R;
+import com.jiateng.domain.Shop;
 
 import java.util.List;
-
-import com.jiateng.bean.ShopInfo;
 
 /**
  * @Description:
@@ -20,22 +19,23 @@ import com.jiateng.bean.ShopInfo;
  * @author: 骆家腾
  */
 public class ShopAdapter extends BaseAdapter {
-    private List<ShopInfo> shopInfos;
+    private List<Shop> shops;
 
     public ShopAdapter() {
     }
-    public ShopAdapter(List<ShopInfo> shopInfos) {
-        this.shopInfos = shopInfos;
+
+    public ShopAdapter(List<Shop> shops) {
+        this.shops = shops;
     }
 
     @Override
     public int getCount() {
-        return shopInfos.size();
+        return shops.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return shopInfos.get(position);
+        return shops.get(position);
     }
 
     @Override
@@ -47,13 +47,18 @@ public class ShopAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_home_shop, null);
         TextView tv_name = itemView.findViewById(R.id.list_item_shop_name);
-        tv_name.setText(shopInfos.get(position).getShopName());
+        tv_name.setText(shops.get(position).getShopName());
         TextView tv_count = itemView.findViewById(R.id.list_item_shop_monthlySales);
-        tv_count.setText(shopInfos.get(position).getMonthlySales());
+        tv_count.setText(shops.get(position).getMonthlySales());
         TextView tv_space = itemView.findViewById(R.id.list_item_shop_space);
-        tv_space.setText(shopInfos.get(position).getLocation());
+        String location = shops.get(position).getAddress().getProvince() + " " +
+                shops.get(position).getAddress().getCity() + " " +
+                shops.get(position).getAddress().getCounty() + " " +
+                shops.get(position).getAddress().getSchoolName() + " " +
+                shops.get(position).getAddress().getSpecificAddress();
+        tv_space.setText(location);
         TextView tv_time = itemView.findViewById(R.id.list_item_shop_openTime);
-        tv_time.setText(shopInfos.get(position).getTime());
+        tv_time.setText(shops.get(position).getBeginTime());
         return itemView;
     }
 }

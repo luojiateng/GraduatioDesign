@@ -8,7 +8,7 @@ import android.os.Handler;
 import com.jiateng.R;
 import com.lidroid.xutils.ViewUtils;
 
-import com.jiateng.common.config.Constants;
+import com.jiateng.config.Constants;
 
 /**
  * @author LuoJiateng

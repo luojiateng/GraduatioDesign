@@ -1,5 +1,7 @@
 package com.jiateng.activity;
 
+import static com.jiateng.utils.ToastUtil.ToastShow;
+
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.widget.ImageButton;
@@ -15,13 +17,24 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.jiateng.R;
-import com.jiateng.bean.ShopInfo;
+import com.jiateng.domain.Shop;
+import com.jiateng.domain.StoreBean;
 import com.jiateng.fragment.AppraiseFragment;
 import com.jiateng.fragment.BusinessFragment;
 import com.jiateng.fragment.ShopFragment;
+import com.jiateng.retrofit.api.ShopApi;
+import com.jiateng.retrofit.domain.ResponseResult;
+import com.jiateng.retrofit.domain.ResultUtil;
+import com.jiateng.retrofit.domain.RetrofitManager;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ShopActivity extends FragmentActivity implements RadioGroup.OnCheckedChangeListener {
     @ViewInject(R.id.shop_title_choose)
@@ -40,10 +53,11 @@ public class ShopActivity extends FragmentActivity implements RadioGroup.OnCheck
     @ViewInject(R.id.shop_collect)
     private ImageButton collect;
     private boolean isCollect = false;
-    private String shopId;
+    private Integer shopId;
 
-    private ShopInfo shopInfo;
-
+    private Shop shop;
+    private ArrayList<StoreBean.Goods> goodsList;
+    private String shopPhoneNumber = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,18 +65,29 @@ public class ShopActivity extends FragmentActivity implements RadioGroup.OnCheck
         setContentView(R.layout.activity_shop);
         ViewUtils.inject(this);
         Bundle bundle = getIntent().getExtras();
-        shopInfo = (ShopInfo) bundle.getSerializable("shopInfo");
+        shop = (Shop) bundle.getSerializable("shop");
 
-        shopId = shopInfo.getShopId();
-        String shopName = shopInfo.getShopName();
-        String shopImgUrl = shopInfo.getShopImgUrl();
+        shopId = shop.getShopId();
+        String shopName = shop.getShopName();
+        String shopImgUrl = shop.getShopImageUrl();
         Picasso.get().load(shopImgUrl).into(image);
         tv_shopName.setText(shopName);
-
         fragmentManager = getSupportFragmentManager();
         choose.setOnCheckedChangeListener(this);
         goods.setChecked(true);
-        changeFragment(new ShopFragment(shopInfo), false);
+        RetrofitManager.getInstance().getApiService("shop/", ShopApi.class).getShopGoods(shopId).enqueue(new Callback<ResponseResult<ArrayList<StoreBean.Goods>>>() {
+            @Override
+            public void onResponse(Call<ResponseResult<ArrayList<StoreBean.Goods>>> call, Response<ResponseResult<ArrayList<StoreBean.Goods>>> response) {
+                ArrayList<StoreBean.Goods> result = ResultUtil.getResult(response);
+                shopPhoneNumber = result.get(0).getShop().getShopPhone();
+                changeFragment(new ShopFragment(result), false);
+            }
+
+            @Override
+            public void onFailure(Call<ResponseResult<ArrayList<StoreBean.Goods>>> call, Throwable t) {
+                ToastShow("请检查网络");
+            }
+        });
         back.setOnClickListener(v -> finish());
         collect.setBackgroundResource(R.drawable.ic_start);
         collect.setOnClickListener(v -> {
@@ -74,8 +99,6 @@ public class ShopActivity extends FragmentActivity implements RadioGroup.OnCheck
                 isCollect = false;
             }
         });
-
-
     }
 
 
@@ -83,13 +106,25 @@ public class ShopActivity extends FragmentActivity implements RadioGroup.OnCheck
     public void onCheckedChanged(RadioGroup group, int checkedId) {
         switch (checkedId) {
             case R.id.shop_title_goods:
-                changeFragment(new ShopFragment(shopInfo), true);
+                RetrofitManager.getInstance().getApiService("shop/", ShopApi.class).getShopGoods(shopId).enqueue(new Callback<ResponseResult<ArrayList<StoreBean.Goods>>>() {
+                    @Override
+                    public void onResponse(Call<ResponseResult<ArrayList<StoreBean.Goods>>> call, Response<ResponseResult<ArrayList<StoreBean.Goods>>> response) {
+                        ArrayList<StoreBean.Goods> result = ResultUtil.getResult(response);
+                        shopPhoneNumber = result.get(0).getShop().getShopPhone();
+                        changeFragment(new ShopFragment(result), true);
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponseResult<ArrayList<StoreBean.Goods>>> call, Throwable t) {
+                        ToastShow("请检查网络");
+                    }
+                });
                 break;
             case R.id.shop_title_appraise:
                 changeFragment(new AppraiseFragment(), true);
                 break;
             case R.id.shop_title_business:
-                changeFragment(new BusinessFragment(), true);
+                changeFragment(new BusinessFragment(shopPhoneNumber), true);
                 break;
             default:
                 break;

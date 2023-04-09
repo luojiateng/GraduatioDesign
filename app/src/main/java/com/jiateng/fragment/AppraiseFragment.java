@@ -1,7 +1,5 @@
 package com.jiateng.fragment;
 
-import static com.jiateng.common.config.Constants.IMAGES_UTILS;
-
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.ListView;
@@ -10,15 +8,19 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.jiateng.R;
+import com.jiateng.adapter.AppraiseAdapter;
 import com.jiateng.common.base.BaseFragment;
+import com.jiateng.domain.Address;
+import com.jiateng.domain.Appraise;
+import com.jiateng.domain.Order;
+import com.jiateng.domain.Shop;
+import com.jiateng.domain.ShoppingCart;
+import com.jiateng.domain.User;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;
-
-import com.jiateng.adapter.AppraiseAdapter;
-import com.jiateng.bean.Appraise;
 
 /**
  * @Description:
@@ -64,13 +66,12 @@ public class AppraiseFragment extends BaseFragment implements RadioGroup.OnCheck
         allAppraise = new ArrayList<>();
         for (int i = 1; i <= 20; i++) {
             Appraise appraise = new Appraise();
-            appraise.setAppraiseId("" + i);
+            appraise.setAppraiseId(i);
             appraise.setServeScore(4.3);
-            appraise.setUserName((i % 2 == 0) ? "好评用户" : "差评用户");
+            appraise.setOrder(new Order(1, new User(), new Shop(), new Address(), new ShoppingCart(), "", 1.0, "", ""));
             appraise.setTime("2023-02-" + i + "日");
             appraise.setContext("此顾客没有评价！");
             appraise.setType((i % 2 == 0) ? 1 : 0);
-            appraise.setAvatarUrl(IMAGES_UTILS[i % 8]);
             allAppraise.add(appraise);
         }
         goodAppraise = (ArrayList<Appraise>) allAppraise.stream().filter(a -> a.getType() == 1).collect(Collectors.toList());

@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.jiateng.bean.StoreBean;
+import com.jiateng.domain.StoreBean;
 
 public abstract class ShopRecyclerViewAdater<T> extends RecyclerView.Adapter<ShopRecyclerHolder> {
 

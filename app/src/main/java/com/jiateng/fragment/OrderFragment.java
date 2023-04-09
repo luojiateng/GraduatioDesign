@@ -1,8 +1,8 @@
 package com.jiateng.fragment;
 
 
-import static com.jiateng.common.config.Constants.ORDRE_STATUS_CANCEL;
-import static com.jiateng.common.config.Constants.ORDRE_STATUS_FINISH;
+import static com.jiateng.config.Constants.ORDRE_STATUS_CANCEL;
+import static com.jiateng.config.Constants.ORDRE_STATUS_FINISH;
 
 import android.content.Intent;
 import android.view.View;
@@ -13,15 +13,14 @@ import com.jiateng.R;
 import com.jiateng.activity.OrderInfoActivity;
 import com.jiateng.activity.ShopActivity;
 import com.jiateng.adapter.OrderAdapter;
-import com.jiateng.bean.Order;
 import com.jiateng.common.base.BaseFragment;
-import com.jiateng.common.utils.RetrofitUtils;
+import com.jiateng.domain.Order;
+import com.jiateng.domain.User;
+import com.jiateng.utils.MockData;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * @Description:
@@ -34,38 +33,29 @@ public class OrderFragment extends BaseFragment implements OrderAdapter.OrderIte
     @ViewInject(R.id.list_item_order_history)
     private ListView orderListView;
     private ArrayList<Order> orders;
-    private RetrofitUtils retrofitUtils;
 
     @Override
     protected View initView() {
         View view = View.inflate(context, R.layout.fragment_order, null);
         ViewUtils.inject(this, view);
-        retrofitUtils = RetrofitUtils.getInstance();
         return view;
     }
 
     @Override
     protected void initData() {
         super.initData();
-//        OrderApi orderApi = retrofitUtils.getApiService(OrderApi.class);
-//        orderApi.getHistoryOrderByUserId("101").enqueue(new Callback<ResponseDate<Order>>() {
-//            @Override
-//            public void onResponse(Call<ResponseDate<Order>> call, Response<ResponseDate<Order>> response) {
-//                System.out.println("success");
-//            }
-//
-//            @Override
-//            public void onFailure(Call<ResponseDate<Order>> call, Throwable t) {
-//                System.out.println("error");
-//            }
-//        });
         orders = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
             Order order = new Order();
-            order.setShopName("户县软面" + (i + 1) + "店");
+            order.setOrderId(i);
+            order.setUser(new User(1, "nickname", "admin", "admin", "", "", "", null));
+            order.setShop(MockData.getShopInfoList().get(1));
+            order.setAddress(MockData.address);
+            order.setShoppingCartList(null);
+            order.setStatus("over");
             order.setMoney(10.0);
+            order.setStartTimeOfOrder("2023-04-03");
             order.setStatus(i % 2 == 0 ? ORDRE_STATUS_FINISH : ORDRE_STATUS_CANCEL);
-            order.setFinishTimeOfOrder(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
             orders.add(order);
         }
         orderListView.setAdapter(new OrderAdapter(orders, this));

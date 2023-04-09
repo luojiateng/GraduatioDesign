@@ -24,7 +24,8 @@
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:text="西安石油大学鄠邑校区"
-                android:textSize="@dimen/text_phone_title_size" />
+                android:textSize="@dimen/text_phone_title_size"
+                android:textColor="@color/black"/>
             <!--消息-->
             <ImageView
                 android:layout_width="wrap_content"
@@ -102,8 +103,10 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler"
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:background="@color/background"/>
         </LinearLayout>
 
 

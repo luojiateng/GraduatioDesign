@@ -18,7 +18,7 @@ import lombok.SneakyThrows;
 
 public abstract class BaseSQLiteHelper<T> extends SQLiteOpenHelper {
     private Class<T> clazz = null;
-    private static String DB_NAME = "orderFood.db";
+    private static String DB_NAME = "orderFoods.db";
     private static String TABLE_NAME = null;
     private static Integer DB_VERSION = 0;
     private SQLiteDatabase rdb = null;
@@ -181,7 +181,6 @@ public abstract class BaseSQLiteHelper<T> extends SQLiteOpenHelper {
      * 清空数据
      */
     protected void cleanData() {
-
         wdb.execSQL("delete from " + TABLE_NAME);
     }
 

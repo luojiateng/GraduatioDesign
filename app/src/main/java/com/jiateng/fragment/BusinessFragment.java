@@ -18,8 +18,13 @@ import com.lidroid.xutils.view.annotation.ViewInject;
  * @author: 骆家腾
  */
 public class BusinessFragment extends BaseFragment {
+    private String phoneNumber;
     @ViewInject(R.id.shop_business_phone)
     private ImageView phone;
+
+    public BusinessFragment(String shopPhoneNumber) {
+        this.phoneNumber = shopPhoneNumber;
+    }
 
     @Override
     protected View initView() {
@@ -31,8 +36,7 @@ public class BusinessFragment extends BaseFragment {
 
     private void init() {
         phone.setOnClickListener(v -> {
-            //TODO 设置电话号获取上个界面传过来的值
-            String phoneNo = "12345";
+            String phoneNo = phoneNumber;
             Intent intent = new Intent();
             intent.setAction(Intent.ACTION_DIAL);
             Uri uri = Uri.parse("tel:" + phoneNo);

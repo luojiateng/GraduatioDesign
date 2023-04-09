@@ -13,11 +13,13 @@ import android.widget.TextView;
 import com.flipboard.bottomsheet.BottomSheetLayout;
 import com.jiateng.R;
 import com.jiateng.adapter.ShoppingCartAdapter;
-import com.jiateng.bean.ShoppingCart;
-import com.jiateng.bean.StoreBean;
-import com.jiateng.common.utils.PicassoUtil;
 import com.jiateng.common.widget.AppTitleView;
-import com.jiateng.db.impl.ShoppingCartImpl;
+import com.jiateng.db.impl.ShoppingCartDaoImpl;
+import com.jiateng.domain.Shop;
+import com.jiateng.domain.ShoppingCart;
+import com.jiateng.domain.StoreBean;
+import com.jiateng.domain.User;
+import com.jiateng.utils.PicassoUtil;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
@@ -45,10 +47,10 @@ public class GoodsActivity extends Activity {
     private ImageView currentGoodsImg;
 
     private List<ShoppingCart> shoppingCartsData;
-    private ShoppingCartImpl shoppingCartDao;
-    private String userId;
-    private String goodsId;
-    private String shopId;
+    private ShoppingCartDaoImpl shoppingCartImpl;
+    private Integer userId;
+    private Integer goodsId;
+    private Integer shopId;
     private String price;
     private ShoppingCartAdapter adapter;
     private String goodsName;
@@ -61,20 +63,20 @@ public class GoodsActivity extends Activity {
         ViewUtils.inject(this);
 
         Bundle bundle = getIntent().getExtras();
-        ShoppingCart goodsInfo = (ShoppingCart) bundle.getSerializable("shoppingCartInfo");
+        ShoppingCart shoppingCartInfo = (ShoppingCart) bundle.getSerializable("shoppingCartInfo");
         StoreBean.Goods goods = (StoreBean.Goods) bundle.getSerializable("goods");
-        userId = goodsInfo.getUserId();
-        shopId = goodsInfo.getShopId();
-        goodsId = goodsInfo.getGoodsId();
-        price = goodsInfo.getGoodsPrice().toString();
-        goodsName = goodsInfo.getGoodsName();
-        goodsImgUrl = goodsInfo.getGoodsImgUrl();
-        shoppingCartDao = ShoppingCartImpl.getInstance(GoodsActivity.this);
+        userId = shoppingCartInfo.getUser().getUserId();
+        shopId = shoppingCartInfo.getShop().getShopId();
+        goodsId = shoppingCartInfo.getGoods().getGoodsId();
+        price = shoppingCartInfo.getGoods().getPrice().toString();
+        goodsName = shoppingCartInfo.getGoods().getGoodName();
+        goodsImgUrl = shoppingCartInfo.getGoods().getGoodsImageUrl();
+        shoppingCartImpl = ShoppingCartDaoImpl.getInstance();
         initCarData();
-        shoppingCartPrice.setText(getShopPrice(goodsInfo));
-        currentGoodsName.setText(goods.getName());
+        shoppingCartPrice.setText(getShopPrice(shoppingCartInfo));
+        currentGoodsName.setText(goods.getGoodName());
         currentGoodsPrice.setText(goods.getPrice().toString());
-        PicassoUtil.setImage(goods.getGoodsImgUrl(), currentGoodsImg);
+        PicassoUtil.setImage(goods.getGoodsImageUrl(), currentGoodsImg);
         adapter = new ShoppingCartAdapter(GoodsActivity.this, shoppingCartsData);
 
         titleView.onClickTitleListener(v -> {
@@ -85,15 +87,19 @@ public class GoodsActivity extends Activity {
         });
         addGoodsButton.setOnClickListener(v -> {
             initCarData();
-            ShoppingCart shoppingCart = new ShoppingCart(null, userId, shopId, goodsId, goodsName, Double.parseDouble(price), goodsImgUrl, 1);
-            shoppingCartDao.insertGoods(shoppingCart);
+            ShoppingCart shoppingCart = new ShoppingCart(
+                    new User(userId),
+                    new Shop(shopId),
+                    goods,
+                    1);
+            shoppingCartImpl.insertGoods(shoppingCart);
             shoppingCartPrice.setText(getShopPrice(shoppingCart));
         });
     }
 
 
     public void initCarData() {
-        shoppingCartsData = shoppingCartDao.queryByGoodsByUserIdShopId(userId, shopId);
+        shoppingCartsData = shoppingCartImpl.queryByGoodsByUserIdShopId(userId, shopId);
     }
 
     /**
@@ -120,8 +126,8 @@ public class GoodsActivity extends Activity {
         ListView carList = view.findViewById(R.id.car_list);
         //清空购物车
         ((TextView) view.findViewById(R.id.cleanShoppingCart)).setOnClickListener(v -> {
-            shoppingCartDao.clean(userId, shopId);
-            shoppingCartsData = shoppingCartDao.queryByGoodsByUserIdShopId(userId, shopId);
+            shoppingCartImpl.clean(userId, shopId);
+            shoppingCartsData = shoppingCartImpl.queryByGoodsByUserIdShopId(userId, shopId);
             adapter.notifyDataSetChanged();
             bottomSheetLayout.dismissSheet();
             shoppingCartPrice.setText("¥0.0");
@@ -130,17 +136,16 @@ public class GoodsActivity extends Activity {
         adapter.setOnSelectListener(new ShoppingCartAdapter.OnSelectListener() {
             @Override
             public void onSelectAdd(int position, ShoppingCart shoppingCart) {
-                shoppingCartDao.insertGoods(shoppingCart);
+                shoppingCartImpl.insertGoods(shoppingCart);
                 adapter.notifyDataSetChanged();
-
                 shoppingCartPrice.setText(getShopPrice(shoppingCart));
             }
 
             @Override
             public void onSelectReduce(int position) {
                 ShoppingCart shoppingCart = shoppingCartsData.get(position);
-                shoppingCartDao.deleteGoods(shoppingCart);
-                ShoppingCart hasGoods = shoppingCartDao.queryOne(shoppingCart);
+                shoppingCartImpl.deleteGoods(shoppingCart);
+                ShoppingCart hasGoods = shoppingCartImpl.queryOne(shoppingCart);
                 if (hasGoods == null) {
                     shoppingCartsData.remove(position);
                 }
@@ -159,9 +164,9 @@ public class GoodsActivity extends Activity {
 
     private String getShopPrice(ShoppingCart shoppingCart) {
         double money = 0.0;
-        List<ShoppingCart> shoppingCarts = shoppingCartDao.queryByGoodsByUserIdShopId(shoppingCart.getUserId(), shoppingCart.getShopId());
+        List<ShoppingCart> shoppingCarts = shoppingCartImpl.queryByGoodsByUserIdShopId(shoppingCart.getUser().getUserId(), shoppingCart.getShop().getShopId());
         for (ShoppingCart cart : shoppingCarts) {
-            money = money + cart.getGoodsPrice().doubleValue() * cart.getGoodsCount().intValue();
+            money = money + cart.getGoods().getPrice().doubleValue() * cart.getGoodsCount().intValue();
         }
         return String.format("%.1f", money);
     }

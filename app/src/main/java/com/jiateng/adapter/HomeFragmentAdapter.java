@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.jiateng.R;
-import com.jiateng.bean.ShopInfo;
+import com.jiateng.domain.Shop;
 import com.squareup.picasso.Picasso;
 import com.youth.banner.Banner;
 import com.youth.banner.adapter.BannerImageAdapter;
@@ -32,12 +32,12 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
     private static final int BANNER = 0;
     private static final int LIST = 1;
     private Context context;
-    private ArrayList<ShopInfo> shopInfoData;
+    private ArrayList<Shop> shopData;
     private MyOnClickListener myOnClickListener;
 
-    public HomeFragmentAdapter(Context context, ArrayList<ShopInfo> shopInfoData) {
+    public HomeFragmentAdapter(Context context, ArrayList<Shop> shopData) {
         this.context = context;
-        this.shopInfoData = shopInfoData;
+        this.shopData = shopData;
     }
 
     @NonNull
@@ -61,13 +61,14 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
         } else {
             ListHolder listHolder = (ListHolder) holder;
             int index = position - 1;
-            listHolder.setData(shopInfoData.get(index), position);
+            //TODO
+            listHolder.setData(shopData.get(index), position);
         }
     }
 
     @Override
     public int getItemCount() {
-        return 1 + shopInfoData.size();
+        return 1 + shopData.size();
     }
 
     @Override
@@ -99,17 +100,17 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
             shopOpenTime = itemView.findViewById(R.id.list_item_shop_openTime);
         }
 
-        public void setData(ShopInfo shopInfo, int position) {
+        public void setData(Shop shop, int position) {
             shopImg.setTag(position);
-            Picasso.get().load(shopInfo.getShopImgUrl()).fit().into(shopImg);
+            Picasso.get().load(shop.getShopImageUrl()).fit().into(shopImg);
             shopName.setTag(position);
-            shopName.setText(shopInfo.getShopName());
+            shopName.setText(shop.getShopName());
             monthlySales.setTag(position);
-            monthlySales.setText(shopInfo.getMonthlySales());
+            monthlySales.setText(shop.getMonthlySales().toString());
             shopSpace.setTag(position);
-            shopSpace.setText(shopInfo.getLocation());
+            shopSpace.setText(shop.getAddress().toString());
             shopOpenTime.setTag(position);
-            shopOpenTime.setText(shopInfo.getTime());
+            shopOpenTime.setText(shop.getBeginTime() + "" + shop.getEndTime());
 
             view.setOnClickListener(v -> {
                 if (myOnClickListener != null) {
@@ -158,11 +159,11 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
     //TODO 将来获取banner从服务器中请求的数据后，删除这些数据
     private ArrayList<Integer> mokaImage() {
         ArrayList<Integer> data = new ArrayList<>();
-        data.add(R.drawable.test_a);
-        data.add(R.drawable.test_b);
-        data.add(R.drawable.test_c);
-        data.add(R.drawable.test_d);
-        data.add(R.drawable.test_e);
+        data.add(R.drawable.b_1);
+        data.add(R.drawable.b_2);
+        data.add(R.drawable.b_3);
+        data.add(R.drawable.b_4);
+        data.add(R.drawable.b_5);
         return data;
     }
 }
