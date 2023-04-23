@@ -13,6 +13,7 @@ public class BannerBean  implements Serializable {
     private Integer bannerId;
     private String bannerImgUrl;
     private String createTime;
+    private Integer shopId;
 
     @Override
     public String toString() {
@@ -41,6 +42,14 @@ public class BannerBean  implements Serializable {
 
     public String getCreateTime() {
         return createTime;
+    }
+
+    public Integer getShopId() {
+        return shopId;
+    }
+
+    public void setShopId(Integer shopId) {
+        this.shopId = shopId;
     }
 
     public BannerBean() {

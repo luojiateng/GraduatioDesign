@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context="com.jiateng.activity.GoodsActivity">
 
-    <com.jiateng.common.widget.AppTitleView
+    <com.jiateng.widget.AppTitleView
         android:id="@+id/shop_goods_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -135,7 +135,7 @@
 
 
         <TextView
-            android:id="@+id/settlement"
+            android:id="@+id/goods_settlement"
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:background="@color/app_main_color"

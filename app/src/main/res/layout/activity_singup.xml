@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:TitleView="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context=".activity.SingupActivity">
+
+    <com.jiateng.widget.AppTitleView
+        android:id="@+id/singup_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        TitleView:title="注册"
+        TitleView:visible="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/front_color"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/singup_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/large_space"
+            android:layout_marginTop="@dimen/little_space"
+            android:layout_marginRight="@dimen/large_space"
+            android:autofillHints="@string/prompt_email"
+            android:hint="@string/prompt_email"
+            android:inputType="phone" />
+
+        <EditText
+            android:id="@+id/singup_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/large_space"
+            android:layout_marginTop="@dimen/little_space"
+            android:layout_marginRight="@dimen/large_space"
+            android:autofillHints="@string/prompt_password"
+            android:hint="@string/prompt_password"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/singup_password_repeat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/large_space"
+            android:layout_marginTop="@dimen/little_space"
+            android:layout_marginRight="@dimen/large_space"
+            android:autofillHints="@string/prompt_password"
+            android:hint="@string/repeat_password"
+            android:inputType="textPassword" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/singup_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/large_space"
+        android:text="立即注册" />
+</LinearLayout>

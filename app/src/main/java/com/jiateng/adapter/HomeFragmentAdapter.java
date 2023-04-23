@@ -44,7 +44,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         if (viewType == BANNER) {
-            View itemView = View.inflate(context, R.layout.banner_home, null);
+            View itemView = View.inflate(context, R.layout.item_banner_home, null);
             return new BannerHolder(context, itemView);
         } else {
             View listItemView = View.inflate(context, R.layout.item_home_shop, null);
@@ -61,7 +61,6 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
         } else {
             ListHolder listHolder = (ListHolder) holder;
             int index = position - 1;
-            //TODO
             listHolder.setData(shopData.get(index), position);
         }
     }
@@ -94,10 +93,10 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
             super(itemView);
             this.view = itemView;
             shopImg = itemView.findViewById(R.id.shop_img);
-            shopName = itemView.findViewById(R.id.list_item_shop_name);
-            monthlySales = itemView.findViewById(R.id.list_item_shop_monthlySales);
-            shopSpace = itemView.findViewById(R.id.list_item_shop_space);
-            shopOpenTime = itemView.findViewById(R.id.list_item_shop_openTime);
+            shopName = itemView.findViewById(R.id.star_shop_name);
+            monthlySales = itemView.findViewById(R.id.star_shop_monthlySales);
+            shopSpace = itemView.findViewById(R.id.star_shop_space);
+            shopOpenTime = itemView.findViewById(R.id.star_shop_openTime);
         }
 
         public void setData(Shop shop, int position) {
@@ -110,7 +109,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
             shopSpace.setTag(position);
             shopSpace.setText(shop.getAddress().toString());
             shopOpenTime.setTag(position);
-            shopOpenTime.setText(shop.getBeginTime() + "" + shop.getEndTime());
+            shopOpenTime.setText(shop.getBeginTime() + " " + shop.getEndTime());
 
             view.setOnClickListener(v -> {
                 if (myOnClickListener != null) {

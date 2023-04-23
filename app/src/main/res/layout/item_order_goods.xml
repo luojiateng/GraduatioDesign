@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:OrderInfoView="http://schemas.android.com/apk/res-auto">
+
+    <com.jiateng.widget.OrderInfoView
+        android:id="@+id/order_item_goods_info"
+        OrderInfoView:back="¥3"
+        OrderInfoView:front="可口可乐"
+        OrderInfoView:mid="x1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

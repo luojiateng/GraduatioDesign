@@ -25,12 +25,13 @@ public class ShoppingCartDTO {
     }
 
     public ShoppingCartDTO(ShoppingCart shoppingCart) {
+        this.shoppingCartId = null;
         this.userId = shoppingCart.getUser().getUserId().toString();
         this.shopId = shoppingCart.getShop().getShopId().toString();
         this.goodsId = shoppingCart.getGoods().getGoodsId().toString();
         this.goodsName = shoppingCart.getGoods().getGoodName();
         this.goodsPrice = shoppingCart.getGoods().getPrice();
         this.goodsImgUrl = shoppingCart.getGoods().getGoodsImageUrl();
-        this.goodsCount = 1;
+        this.goodsCount = shoppingCart.getGoodsCount();
     }
 }

@@ -8,7 +8,7 @@
     android:orientation="vertical"
     tools:context="com.jiateng.activity.OrderInfoActivity">
 
-    <com.jiateng.common.widget.AppTitleView
+    <com.jiateng.widget.AppTitleView
         android:id="@+id/title_orderInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,6 +40,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/getOrderStatus"
                     android:layout_width="match_parent"
                     android:textColor="@color/black"
                     android:layout_height="wrap_content"
@@ -47,7 +48,7 @@
                     android:drawableRight="@drawable/ic_arrow_right"
                     android:gravity="center_vertical"
                     android:padding="@dimen/normal_space"
-                    android:text="配送进程"
+                    android:text="订单进程"
                     android:textSize="@dimen/text_phone_title_size" />
 
                 <include layout="@layout/layout_split_horizontal_short" />
@@ -72,18 +73,18 @@
                     <View style="@style/orderInfoSplitLine" />
 
 
-                    <TextView
-                        android:id="@+id/boss_get_order"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:drawableTop="@drawable/ic_get_order_1"
-                        android:drawablePadding="@dimen/little_space"
-                        android:gravity="center"
-                        android:text="商家接单"
-                        android:textSize="@dimen/text_phone_tip_size" />
+                    <!--                    <TextView-->
+                    <!--                        android:id="@+id/boss_get_order"-->
+                    <!--                        android:layout_width="wrap_content"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:layout_weight="1"-->
+                    <!--                        android:drawableTop="@drawable/ic_get_order_1"-->
+                    <!--                        android:drawablePadding="@dimen/little_space"-->
+                    <!--                        android:gravity="center"-->
+                    <!--                        android:text="商家接单"-->
+                    <!--                        android:textSize="@dimen/text_phone_tip_size" />-->
 
-                    <View style="@style/orderInfoSplitLine" />
+                    <!--                    <View style="@style/orderInfoSplitLine" />-->
 
                     <TextView
                         android:id="@+id/post_order"
@@ -103,16 +104,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:drawableTop="@drawable/ic_finish_1"
+                        android:drawableTop="@drawable/ic_finish"
                         android:drawablePadding="@dimen/little_space"
                         android:gravity="center"
                         android:text="订单完成"
                         android:textSize="@dimen/text_phone_tip_size" />
 
+
                 </LinearLayout>
             </LinearLayout>
 
-            <!--TODO 未送达之前为手动送达按键，送达之后为点评按键-->
             <!--商家未接单的时候为取消订单，接单之后为送达，完成之后为点评-->
             <Button
                 android:id="@+id/order_status_checkout"
@@ -144,49 +145,15 @@
 
                 <include layout="@layout/layout_split_horizontal_short" />
 
-                <!--TODO 完成订单布局设计-->
-                <com.jiateng.common.widget.OrderInfoView
+                <ListView
+                    android:id="@+id/order_info_list"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    OrderInfoView:back="¥12"
-                    OrderInfoView:front="青椒炒鸡蛋盖饭"
-                    OrderInfoView:mid="x1" />
+                    android:layout_height="160dp" />
 
-                <com.jiateng.common.widget.OrderInfoView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    OrderInfoView:back="¥10"
-                    OrderInfoView:front="肉丝干拌面"
-                    OrderInfoView:mid="x1" />
+                <include layout="@layout/layout_split_horizontal_full" />
 
-                <com.jiateng.common.widget.OrderInfoView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    OrderInfoView:back="¥3"
-                    OrderInfoView:front="可口可乐"
-                    OrderInfoView:mid="x1" />
-
-                <include layout="@layout/layout_split_horizontal_short" />
-
-                <com.jiateng.common.widget.OrderInfoView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    OrderInfoView:back="¥9"
-                    OrderInfoView:front="小计" />
-
-                <com.jiateng.common.widget.OrderInfoView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    OrderInfoView:back="¥9"
-                    OrderInfoView:front="包装" />
-
-                <com.jiateng.common.widget.OrderInfoView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    OrderInfoView:back="¥9"
-                    OrderInfoView:front="配送" />
-
-                <com.jiateng.common.widget.OrderInfoView
+                <com.jiateng.widget.OrderInfoView
+                    android:id="@+id/order_total_orderview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     OrderInfoView:back="¥9"
@@ -208,7 +175,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/large_space"
+                android:layout_marginTop="15dp"
                 android:layout_marginBottom="@dimen/large_space"
                 android:background="@drawable/shape_common_background"
                 android:orientation="vertical">
@@ -224,43 +191,42 @@
 
                 <include layout="@layout/layout_split_horizontal_short" />
 
-                <com.jiateng.common.widget.OrderInfoView
+                <com.jiateng.widget.OrderInfoView
+                    android:id="@+id/order_id"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     OrderInfoView:back="1673751964000"
                     OrderInfoView:front="订单号码" />
 
-                <com.jiateng.common.widget.OrderInfoView
+                <com.jiateng.widget.OrderInfoView
+                    android:id="@+id/order_begin_time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     OrderInfoView:back="2023年1月15日12:01:40"
                     OrderInfoView:front="下单时间" />
 
-                <com.jiateng.common.widget.OrderInfoView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    OrderInfoView:back="2023年1月15日13:01:40"
-                    OrderInfoView:front="支付时间" />
-
-                <com.jiateng.common.widget.OrderInfoView
+                <com.jiateng.widget.OrderInfoView
+                    android:id="@+id/order_take_address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     OrderInfoView:back="陕西省 西安市 鄠邑区\n西安石油大学鄠邑校区\n十七号宿舍楼 447宿舍"
                     OrderInfoView:front="配送地址" />
 
-                <com.jiateng.common.widget.OrderInfoView
+                <com.jiateng.widget.OrderInfoView
+                    android:id="@+id/order_remark"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     OrderInfoView:back="(来一颗蒜)"
                     OrderInfoView:front="备注信息" />
 
-                <com.jiateng.common.widget.OrderInfoView
+                <com.jiateng.widget.OrderInfoView
+                    android:id="@+id/order_userInfo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     OrderInfoView:back="马邦德 (18092429450)"
                     OrderInfoView:front="联系信息" />
 
-                <com.jiateng.common.widget.OrderInfoView
+                <com.jiateng.widget.OrderInfoView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     OrderInfoView:back="在线支付"

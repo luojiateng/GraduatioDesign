@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+
+    tools:context=".activity.PaidResultActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/large_space"
+        android:layout_marginTop="170dp"
+        android:layout_marginRight="@dimen/large_space">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:gravity="center_horizontal"
+            android:text="支付完成!"
+            android:textColor="@color/paid"
+            android:textSize="50dp" />
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/back_to_shopper"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="100dp"
+        android:background="@color/app_main_color"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="返回商家"
+        android:textColor="@color/white"
+        android:textSize="@dimen/large_space" />
+
+
+</RelativeLayout>

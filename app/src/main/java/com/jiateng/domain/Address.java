@@ -10,14 +10,14 @@ import java.io.Serializable;
  * @author: 骆家腾
  */
 public class Address implements Serializable {
-    private Integer addressId;
-    private String province;
-    private String city;
-    private String county;
-    private String schoolName;
-    private String build;
-    private String specificAddress;
-    private Boolean isFirst;
+    protected Integer addressId;
+    protected String province;
+    protected String city;
+    protected String county;
+    protected String schoolName;
+    protected String build;
+    protected String specificAddress;
+    protected Boolean isFirst;
 
     public Integer getAddressId() {
         return addressId;
@@ -96,10 +96,22 @@ public class Address implements Serializable {
                 ", isFirst=" + isFirst +
                 '}';
 
-        return build + " " + specificAddress;
+        return build + specificAddress;
+    }
+
+    public String getAddressInfo() {
+        return schoolName + build + specificAddress;
+    }
+
+    public String getSpecific() {
+        return  build + specificAddress;
     }
 
     public Address() {
+    }
+
+    public Address(Integer addressId) {
+        this.addressId = addressId;
     }
 
     public Address(Integer addressId, String province, String city, String county, String schoolName, String build, String specificAddress, Boolean isFirst) {

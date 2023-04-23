@@ -38,7 +38,7 @@
             android:paddingLeft="@dimen/normal_space">
 
             <TextView
-                android:id="@+id/list_item_shop_name"
+                android:id="@+id/star_shop_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
@@ -48,10 +48,10 @@
                 android:textSize="@dimen/text_phone_title_size" />
 
             <TextView
-                android:id="@+id/list_item_shop_monthlySales_tag"
+                android:id="@+id/star_shop_monthlySales_tag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/list_item_shop_name"
+                android:layout_below="@+id/star_shop_name"
                 android:layout_alignParentLeft="true"
                 android:layout_marginTop="@dimen/little_space"
                 android:text="月售："
@@ -59,21 +59,21 @@
                 android:textSize="@dimen/text_phone_context_size" />
 
             <TextView
-                android:id="@+id/list_item_shop_monthlySales"
+                android:id="@+id/star_shop_monthlySales"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/list_item_shop_name"
+                android:layout_below="@+id/star_shop_name"
                 android:layout_marginTop="@dimen/little_space"
-                android:layout_toRightOf="@+id/list_item_shop_monthlySales_tag"
+                android:layout_toRightOf="@+id/star_shop_monthlySales_tag"
                 android:text="123"
                 android:textColor="@color/gray"
                 android:textSize="@dimen/text_phone_context_size" />
 
             <TextView
-                android:id="@+id/list_item_shop_space_tag"
+                android:id="@+id/star_shop_space_tag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/list_item_shop_monthlySales"
+                android:layout_below="@+id/star_shop_monthlySales"
                 android:layout_alignParentLeft="true"
                 android:layout_marginTop="@dimen/little_space"
                 android:text="位置："
@@ -81,22 +81,22 @@
                 android:textSize="@dimen/text_phone_context_size" />
 
             <TextView
-                android:id="@+id/list_item_shop_space"
+                android:id="@+id/star_shop_space"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/list_item_shop_monthlySales"
+                android:layout_below="@+id/star_shop_monthlySales"
                 android:layout_marginTop="@dimen/little_space"
-                android:layout_toRightOf="@+id/list_item_shop_space_tag"
+                android:layout_toRightOf="@+id/star_shop_space_tag"
                 android:text="东区食堂一楼2号窗口"
                 android:textColor="@color/gray"
                 android:textSize="@dimen/text_phone_context_size" />
 
 
             <TextView
-                android:id="@+id/list_item_shop_TimeTag"
+                android:id="@+id/star_shop_TimeTag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/list_item_shop_space"
+                android:layout_below="@+id/star_shop_space"
                 android:layout_alignParentLeft="true"
                 android:layout_marginTop="@dimen/normal_space"
                 android:text="营业时间："
@@ -104,12 +104,12 @@
                 android:textSize="@dimen/text_phone_context_size" />
 
             <TextView
-                android:id="@+id/list_item_shop_openTime"
+                android:id="@+id/star_shop_openTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/list_item_shop_space"
+                android:layout_below="@+id/star_shop_space"
                 android:layout_marginTop="@dimen/normal_space"
-                android:layout_toRightOf="@+id/list_item_shop_TimeTag"
+                android:layout_toRightOf="@+id/star_shop_TimeTag"
                 android:text="7:00-12:00 14:00-22:00"
                 android:textColor="@color/gray"
                 android:textSize="@dimen/text_phone_context_size" />

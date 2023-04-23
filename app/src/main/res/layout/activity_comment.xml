@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:AppTitleView="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.CommentActivity">
+
+    <com.jiateng.widget.AppTitleView
+        android:id="@+id/comment_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        AppTitleView:title="备注"
+        AppTitleView:visible="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/normal_space"
+        android:background="@color/front_color"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/comment_info"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:gravity="top"
+            android:hint="请输入口味偏好等要求" />
+
+        <Button
+            android:id="@+id/comment_commit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/app_main_color"
+            android:text="完成"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+</LinearLayout>

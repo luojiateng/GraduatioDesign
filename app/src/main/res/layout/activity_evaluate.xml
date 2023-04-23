@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:AppTitleView="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context=".activity.EvaluateActivity">
+
+    <com.jiateng.widget.AppTitleView
+        android:id="@+id/evaluate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        AppTitleView:title="评价"
+        AppTitleView:visible="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/normal_space"
+        android:background="@drawable/shape_common_background"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/normal_space"
+            android:layout_marginTop="@dimen/height_title"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/shop_title_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/large_space"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="3dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/shop_title_img"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_app_icon" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/large_space"
+                android:gravity="center_vertical"
+                android:text="美味砂锅"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_phone_title_size" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="@dimen/large_space"
+            android:layout_marginTop="@dimen/large_space"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="满意度"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_phone_title_size" />
+
+            <com.iarcuschin.simpleratingbar.SimpleRatingBar
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/large_space"
+                AppTitleView:srb_stepSize="1"
+                app:srb_starSize="30dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="@dimen/large_space"
+            android:layout_marginTop="@dimen/normal_space"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="食   物"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_phone_title_size" />
+
+            <com.iarcuschin.simpleratingbar.SimpleRatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/large_space"
+                AppTitleView:srb_stepSize="1"
+                app:srb_starSize="30dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="@dimen/large_space"
+            android:layout_marginTop="@dimen/normal_space"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="配   送"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_phone_title_size" />
+
+            <com.iarcuschin.simpleratingbar.SimpleRatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/large_space"
+                AppTitleView:srb_stepSize="1"
+                app:srb_starSize="30dp" />
+        </LinearLayout>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_margin="@dimen/normal_space"
+            android:background="@drawable/shape_common_background"
+            android:gravity="top"
+            android:hint="请输入您的评价"
+            android:inputType="text" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/app_main_color"
+            android:text="提交"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_phone_title_size" />
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:TitleView="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.jiateng.widget.AppTitleView
+        android:id="@+id/title_searchHistory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        TitleView:title="搜索结果"
+        TitleView:visible="true" />
+
+    <TextView
+        android:id="@+id/tip_hiden_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/text_phone_title_size"
+        android:gravity="center_horizontal"
+        android:text="未找到结果"
+        android:visibility="gone" />
+
+    <ProgressBar
+        android:id="@+id/progre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:visibility="gone" />
+
+    android:layout_width=""
+    android:layout_height=""
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/search_result"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

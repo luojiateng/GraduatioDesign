@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/threat_call_rootView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_common_background"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/large_space"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|left"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/ic_point" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/normal_space"
+                android:layout_weight="1"
+                android:text="订单已提交"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_phone_title_size" />
+
+            <TextView
+                android:id="@+id/create_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/large_space"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="04-21 18:57"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_phone_title_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/blue_1"
+            android:layout_width="2dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="27dp"
+            android:background="@color/line_blue"
+            android:orientation="horizontal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/large_space"
+                android:src="@drawable/ic_point" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/normal_space"
+                android:layout_weight="1"
+                android:text="订单已支付"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_phone_title_size" />
+
+            <TextView
+                android:id="@+id/paid_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/large_space"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="04-21 18:57"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_phone_title_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/blue_2"
+            android:layout_width="2dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="27dp"
+            android:background="@color/line_blue"
+            android:orientation="horizontal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/large_space"
+                android:src="@drawable/ic_point" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/normal_space"
+                android:layout_weight="1"
+                android:text="商家已接单"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_phone_title_size" />
+
+            <TextView
+                android:id="@+id/shop_init"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/large_space"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="04-21 18:57"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_phone_title_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/blue_3"
+            android:layout_width="2dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="27dp"
+            android:background="@color/line_blue"
+            android:orientation="horizontal" />
+
+        <LinearLayout
+            android:id="@+id/line_over"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/large_space"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/large_space"
+                android:src="@drawable/ic_point" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/normal_space"
+                android:layout_weight="1"
+                android:text="订单已完结"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_phone_title_size" />
+
+            <TextView
+                android:id="@+id/order_over"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/large_space"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="04-21 18:57"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_phone_title_size" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/submit_order"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/normal_space"
+            android:layout_marginTop="@dimen/normal_space"
+            android:layout_marginRight="@dimen/normal_space"
+            android:layout_marginBottom="@dimen/normal_space"
+            android:background="@color/line_blue"
+            android:text="确认收货"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/close_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="@dimen/large_space"
+        android:src="@drawable/ic_cancel" />
+</LinearLayout>

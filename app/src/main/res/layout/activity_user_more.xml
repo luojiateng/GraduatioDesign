@@ -5,13 +5,56 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/background"
     tools:context="com.jiateng.activity.SettingActivity">
 
-    <com.jiateng.common.widget.AppTitleView
+    <com.jiateng.widget.AppTitleView
         android:id="@+id/more_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        TitleView:title="更多功能"
+        TitleView:title="关于App"
         TitleView:visible="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/normal_space"
+        android:layout_marginTop="@dimen/large_space"
+        android:text="项目结构：Android移动端 + SpringBoot后端"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_phone_title_size" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/normal_space"
+        android:layout_marginTop="@dimen/large_space"
+        android:text="Android框架技术: xUtils、Picasso、lombok、fastjson2、recyclerview、banner、
+        simpleRatingbar、okHttp、Retrofit2、bottomsheet、gilde、pictureselector"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_phone_title_size" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/normal_space"
+        android:layout_marginTop="@dimen/large_space"
+        android:text="后端框架技术: SpringBoot、Mybatis、Redis、MySQL、SpringSecurity、七牛云、fastjson、leanCloud"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_phone_title_size" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"></LinearLayout>
+
+    <Button
+        android:id="@+id/zhidaol"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_main_color"
+        android:text="知道了"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_phone_title_size" />
 
 </LinearLayout>

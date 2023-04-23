@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/shape_common_background"
     android:orientation="vertical">
 
     <LinearLayout
@@ -9,8 +10,7 @@
         android:layout_height="match_parent"
         android:layout_margin="@dimen/little_space"
         android:layout_marginTop="@dimen/normal_space"
-        android:layout_marginBottom="@dimen/little_space"
-        android:background="@drawable/shape_common_background"
+        android:layout_marginBottom="@dimen/normal_space"
         android:orientation="vertical"
         android:paddingLeft="@dimen/normal_space">
 
@@ -85,7 +85,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/order_item_total"
                 android:layout_marginTop="@dimen/little_space"
-                android:text="支付："
+                android:text="状态："
                 android:textSize="@dimen/text_phone_context_size" />
 
             <TextView
@@ -120,6 +120,5 @@
         </RelativeLayout>
 
     </LinearLayout>
-
 
 </LinearLayout>

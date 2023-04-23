@@ -15,4 +15,8 @@ public class ToastUtil {
     public static void ToastShow(String msg) {
         Toast.makeText(MainApplicationConfig.getContext(), msg, Toast.LENGTH_SHORT).show();
     }
+
+    public static void intenetErrorNotification() {
+        Toast.makeText(MainApplicationConfig.getContext(), "请检查网络哦", Toast.LENGTH_SHORT).show();
+    }
 }

@@ -1,7 +1,8 @@
 package com.jiateng.domain;
 
+import com.alibaba.fastjson2.annotation.JSONType;
+
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * @Description:
@@ -10,18 +11,21 @@ import java.util.List;
  * @date: 2023/1/15 16:59
  * @author: 骆家腾
  */
+@JSONType(orders = {"username", "password"})
 public class User implements Serializable {
     private Integer userId;
     private String nickName;
-    private String username;
+    private String phoneNumber;
     private String password;
     private String avatarUrl;
-    private String phoneNumber;
+    private String username;
     private String sex;
-    private List<Address> addresses;
 
     public User(Integer userId) {
         this.userId = userId;
+    }
+
+    public User() {
     }
 
     @Override
@@ -29,12 +33,11 @@ public class User implements Serializable {
         return "User{" +
                 "userId=" + userId +
                 ", nickName='" + nickName + '\'' +
-                ", username='" + username + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 ", password='" + password + '\'' +
                 ", avatarUrl='" + avatarUrl + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
+                ", username='" + username + '\'' +
                 ", sex='" + sex + '\'' +
-                ", addresses=" + addresses +
                 '}';
     }
 
@@ -54,12 +57,12 @@ public class User implements Serializable {
         this.nickName = nickName;
     }
 
-    public String getUsername() {
-        return username;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getPassword() {
@@ -78,12 +81,12 @@ public class User implements Serializable {
         this.avatarUrl = avatarUrl;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getUsername() {
+        return username;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getSex() {
@@ -94,25 +97,23 @@ public class User implements Serializable {
         this.sex = sex;
     }
 
-    public List<Address> getAddresses() {
-        return addresses;
+
+    public User(String nickName) {
+        this.nickName = nickName;
     }
 
-    public void setAddresses(List<Address> addresses) {
-        this.addresses = addresses;
+    public User(String phoneNumber, String password) {
+        this.phoneNumber = phoneNumber;
+        this.password = password;
     }
 
-    public User() {
-    }
-
-    public User(Integer userId, String nickName, String username, String password, String avatarUrl, String phoneNumber, String sex, List<Address> addresses) {
+    public User(Integer userId, String nickName, String phoneNumber, String password, String avatarUrl, String username, String sex) {
         this.userId = userId;
         this.nickName = nickName;
-        this.username = username;
+        this.phoneNumber = phoneNumber;
         this.password = password;
         this.avatarUrl = avatarUrl;
-        this.phoneNumber = phoneNumber;
+        this.username = username;
         this.sex = sex;
-        this.addresses = addresses;
     }
 }

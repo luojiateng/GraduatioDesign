@@ -1,5 +1,7 @@
 package com.jiateng.fragment;
 
+import static com.jiateng.utils.ToastUtil.ToastShow;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,10 +23,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.flipboard.bottomsheet.BottomSheetLayout;
 import com.jiateng.R;
 import com.jiateng.activity.GoodsActivity;
+import com.jiateng.activity.PaidActivity;
 import com.jiateng.adapter.ShopRecyclerHolder;
 import com.jiateng.adapter.ShopRecyclerViewAdater;
 import com.jiateng.adapter.ShoppingCartAdapter;
-import com.jiateng.common.base.BaseFragment;
+import com.jiateng.base.BaseFragment;
 import com.jiateng.db.impl.ShoppingCartDaoImpl;
 import com.jiateng.domain.Shop;
 import com.jiateng.domain.ShoppingCart;
@@ -67,7 +70,7 @@ public class ShopFragment extends BaseFragment {
     public ShopFragment(ArrayList<StoreBean.Goods> goodsList) {
         super();
         this.shopId = goodsList.get(0).getShop().getShopId();
-        this.userId = SharedPreferencesUtil.getInt(context, "userId", 1);
+        this.userId = SharedPreferencesUtil.getInt(context, "userId", -1);
         this.goodsList = goodsList;
     }
 
@@ -83,6 +86,18 @@ public class ShopFragment extends BaseFragment {
         carInfo.setOnClickListener(v -> {
             shoppingCartsData = shoppingCartDao.queryByGoodsByUserIdShopId(userId, shopId);
             showBottomSheet();
+        });
+        settlement.setOnClickListener(v -> {
+            ArrayList<ShoppingCart> willPaidGoods = (ArrayList<ShoppingCart>) shoppingCartDao.queryByGoodsByUserIdShopId(userId, shopId);
+            if (willPaidGoods.size() == 0) {
+                ToastShow("请选购商品");
+            } else {
+                Intent intent = new Intent(context, PaidActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("willPaidGoods", willPaidGoods);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
         });
         return view;
     }
@@ -148,6 +163,7 @@ public class ShopFragment extends BaseFragment {
             public void onSelectAdd(int position, ShoppingCart shoppingCart) {
                 shoppingCartDao.insertGoods(shoppingCart);
                 adapter.notifyDataSetChanged();
+                rAdapter.notifyDataSetChanged();
                 goodsPrice.setText(getShopPrice(shoppingCart));
             }
 
@@ -174,10 +190,6 @@ public class ShopFragment extends BaseFragment {
     private StoreBean storeBean;
     private LAdapter lAdapter;
     private RAdapter rAdapter;
-
-    /**
-     * TODO 从网络上请求数据
-     */
     private void initGoodsData() {
         storeBean = new StoreBean();
         storeBean.categories = goodsList.stream().map(goods -> new StoreBean.Category(goods.getCategory())).distinct().collect(Collectors.toList());
@@ -191,7 +203,6 @@ public class ShopFragment extends BaseFragment {
     private RecyclerView rvR;
     @ViewInject(R.id.tv_header)
     private TextView tv_head;
-
     /**
      * 初始化RecyclerView以及各种组件
      */
@@ -205,10 +216,8 @@ public class ShopFragment extends BaseFragment {
         rAdapter = new RAdapter(context, R.layout.item_goods_right, storeBean.goodsList);
         rvR.setAdapter(rAdapter);
     }
-
     private boolean moveToTop = false;
     private int index;
-
     /**
      * 初始化监听事件
      * 如果右侧的列表发生了滚动，停止监听
@@ -218,8 +227,6 @@ public class ShopFragment extends BaseFragment {
         rAdapter.setShoppingItemClickListener(new ShopRecyclerViewAdater.ShoppingItemClickListener() {
             @Override
             public void addClick(ShopRecyclerHolder holder, List<StoreBean.Goods> data, int position) {
-//                String goods  Id = data.get(position).getCategory() + data.get(position).getName();
-//                double price = Double.parseDouble(((TextView) holder.getView(R.id.tvPrice)).getText().toString());
                 ShoppingCart shoppingCart = new ShoppingCart(new User(userId), data.get(position).getShop(), data.get(position), 1);
                 shoppingCartDao.insertGoods(shoppingCart);
                 ((ImageView) holder.getView(R.id.addToCar)).setVisibility(View.VISIBLE);
@@ -281,18 +288,14 @@ public class ShopFragment extends BaseFragment {
             return false;
         });
     }
-
     private String getShopPrice(ShoppingCart shoppingCart) {
         double money = 0.0;
         List<ShoppingCart> shoppingCarts = shoppingCartDao.queryByGoodsByUserIdShopId(shoppingCart.getUser().getUserId(), shoppingCart.getShop().getShopId());
-        System.out.println(shoppingCarts);
         for (ShoppingCart cart : shoppingCarts) {
             money = money + cart.getGoods().getPrice().doubleValue() * cart.getGoodsCount().intValue();
         }
-        return String.format("%.1f", money);
+        return money == 0.0 ? "0" : String.format("%.1f", money);
     }
-
-
     private void moveToPosition_R(int index) {
         LinearLayoutManager layoutManager = (LinearLayoutManager) rvR.getLayoutManager();
         int f = layoutManager.findFirstVisibleItemPosition();
@@ -310,8 +313,6 @@ public class ShopFragment extends BaseFragment {
             layoutManager.scrollToPosition(index);
         }
     }
-
-
     class LAdapter extends ShopRecyclerViewAdater<StoreBean.Category> {
 
         public LAdapter(Context context, int resLayout, List<StoreBean.Category> data) {
@@ -364,7 +365,6 @@ public class ShopFragment extends BaseFragment {
             }
         }
     }
-
     class RAdapter extends ShopRecyclerViewAdater<StoreBean.Goods> {
         String goodsId;
 
@@ -427,6 +427,4 @@ public class ShopFragment extends BaseFragment {
             });
         }
     }
-
-
 }

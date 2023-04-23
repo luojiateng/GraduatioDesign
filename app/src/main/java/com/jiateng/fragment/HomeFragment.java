@@ -3,19 +3,23 @@ package com.jiateng.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.jiateng.R;
+import com.jiateng.activity.SearchActivity;
 import com.jiateng.activity.ShopActivity;
 import com.jiateng.adapter.HomeFragmentAdapter;
-import com.jiateng.common.base.BaseFragment;
+import com.jiateng.base.BaseFragment;
 import com.jiateng.domain.Shop;
 import com.jiateng.retrofit.api.ShopApi;
 import com.jiateng.retrofit.domain.ResponseResult;
 import com.jiateng.retrofit.domain.ResultUtil;
 import com.jiateng.retrofit.domain.RetrofitManager;
+import com.jiateng.utils.DefaultValueData;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
@@ -36,15 +40,27 @@ public class HomeFragment extends BaseFragment {
 
     @ViewInject(R.id.recycler)
     private RecyclerView recyclerView;
+    @ViewInject(R.id.search_bar)
+    private TextView searchBar;
     private HomeFragmentAdapter adapter;
     private ShopApi shopRequest;
     private ArrayList<Shop> shops;
+    @ViewInject(R.id.home_progressBar)
+    private ProgressBar progressBar;
 
     @Override
     protected View initView() {
         View view = View.inflate(context, R.layout.fragment_home, null);
         ViewUtils.inject(this, view);
         shopRequest = RetrofitManager.getInstance().getApiService("/shop", ShopApi.class);
+        searchBar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, SearchActivity.class);
+                startActivity(intent);
+            }
+        });
+        progressBar.setVisibility(View.VISIBLE);
         return view;
     }
 
@@ -55,6 +71,9 @@ public class HomeFragment extends BaseFragment {
             @Override
             public void onResponse(Call<ResponseResult<ArrayList<Shop>>> call, Response<ResponseResult<ArrayList<Shop>>> response) {
                 shops = ResultUtil.getResult(response);
+                if (shops == null) {
+                    shops = DefaultValueData.getShopInfoList();
+                }
                 adapter = new HomeFragmentAdapter(context, shops);
                 recyclerView.setAdapter(adapter);
                 adapter.setMyOnClickListener((view, position) -> {
@@ -69,6 +88,7 @@ public class HomeFragment extends BaseFragment {
                 linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
                 linearLayoutManager.setReverseLayout(false);
                 recyclerView.setLayoutManager(linearLayoutManager);
+                progressBar.setVisibility(View.GONE);
             }
 
             @Override

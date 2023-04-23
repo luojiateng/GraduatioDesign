@@ -39,7 +39,6 @@ public class RetrofitManager {
     }
 
     private Retrofit getRetrofit(String url) {
-        if (retrofit == null) {
             // 添加日志拦截器
             HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
             httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
@@ -60,7 +59,6 @@ public class RetrofitManager {
                     .baseUrl(baseHost + url + "/")
                     .client(okHttpClient)
                     .build();
-        }
         return retrofit;
     }
 

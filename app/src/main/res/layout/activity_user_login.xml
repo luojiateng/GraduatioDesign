@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context="com.jiateng.activity.SettingActivity">
 
-    <com.jiateng.common.widget.AppTitleView
+    <com.jiateng.widget.AppTitleView
         android:id="@+id/login_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.jiateng.R;
-import com.jiateng.common.base.BaseFragment;
+import com.jiateng.base.BaseFragment;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 

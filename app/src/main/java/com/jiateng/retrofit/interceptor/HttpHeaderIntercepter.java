@@ -11,7 +11,6 @@ import okhttp3.Response;
 /**
  * @Description:
  * @Title: HttpHeaderIntercepter
- * @ProjectName: orderfoodDemo
  * @date: 2023/4/3 16:03
  * @author: 骆家腾
  */

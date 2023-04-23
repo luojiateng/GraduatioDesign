@@ -42,6 +42,18 @@
         <item name="android:textColor">@color/selector_color_appraise_all</item>
     </style>
 
+    <style name="paidStyle">
+        <item name="android:textSize">@dimen/text_phone_context_size</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginLeft">1dp</item>
+        <item name="android:layout_marginRight">1dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:drawablePadding">2dp</item>
+        <item name="android:background">@color/front_color</item>
+        <item name="android:button">@null</item>
+        <item name="android:textColor">@color/selector_color_appraise_all</item>
+    </style>
+
     <style name="userItemSetting">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/normal_input_height</item>
@@ -55,7 +67,7 @@
         <item name="android:layout_width">22dp</item>
         <item name="android:layout_height">1dp</item>
         <item name="android:layout_gravity">center</item>
-        <item name="android:background">@color/app_main_color</item>
+        <item name="android:background">@color/black</item>
         <item name="android:layout_weight">1</item>
     </style>
 

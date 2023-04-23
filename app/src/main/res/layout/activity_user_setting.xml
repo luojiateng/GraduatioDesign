@@ -4,14 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     android:orientation="vertical"
     tools:context="com.jiateng.activity.SettingActivity">
 
-    <com.jiateng.common.widget.AppTitleView
+    <com.jiateng.widget.AppTitleView
         android:id="@+id/setting_title_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         TitleView:title="系统设置"
         TitleView:visible="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/logout"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="bottom"
+            android:background="@color/front_color"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="退出登录"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_phone_title_size" />
+    </LinearLayout>
+
 
 </LinearLayout>

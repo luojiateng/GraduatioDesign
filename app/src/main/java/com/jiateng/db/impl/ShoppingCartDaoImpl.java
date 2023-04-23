@@ -2,9 +2,8 @@ package com.jiateng.db.impl;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
-import com.jiateng.common.base.BaseSQLiteHelper;
+import com.jiateng.base.BaseSQLiteHelper;
 import com.jiateng.config.MainApplicationConfig;
 import com.jiateng.db.ShoppingCartDao;
 import com.jiateng.domain.ShoppingCart;
@@ -21,12 +20,27 @@ import java.util.stream.Collectors;
  * @author: 骆家腾
  */
 public class ShoppingCartDaoImpl extends BaseSQLiteHelper<ShoppingCartDTO> implements ShoppingCartDao {
+    private static ShoppingCartDaoImpl shoppingCartDao;
+    private static String tableName = "shoppingcart";
+
     public static ShoppingCartDaoImpl getInstance() {
-        if (helper == null) {
-            helper = new ShoppingCartDaoImpl(MainApplicationConfig.getContext(), "shoppingcart", 1);
+        if (shoppingCartDao == null) {
+            shoppingCartDao = new ShoppingCartDaoImpl(MainApplicationConfig.getContext(), tableName, 1);
         }
+        helper = shoppingCartDao;
+        SQLiteDatabase writableDatabase = shoppingCartDao.getWritableDatabase();
+        writableDatabase.execSQL(" CREATE TABLE IF NOT EXISTS shoppingcart ( " +
+                "  shoppingCartId integer PRIMARY KEY AUTOINCREMENT NOT NULL, " +
+                "  userId varchar(255)   NOT NULL, " +
+                "  shopId varchar(255)   NOT NULL, " +
+                "  goodsId varchar(255)   NOT NULL, " +
+                "  goodsName varchar(255)  NOT NULL, " +
+                "  goodsPrice decimal(10, 2) NOT NULL, " +
+                "  goodsImgUrl varchar(255)  DEFAULT NULL, " +
+                "  goodsCount integer NOT NULL" +
+                ")");
         helper.openRWLink();
-        return (ShoppingCartDaoImpl) helper;
+        return shoppingCartDao;
     }
 
     public ShoppingCartDaoImpl(Context context, String tableName, Integer dbVersion) {
@@ -38,23 +52,23 @@ public class ShoppingCartDaoImpl extends BaseSQLiteHelper<ShoppingCartDTO> imple
 
     @Override
     protected void createTable(SQLiteDatabase db) {
-        String sql = " CREATE TABLE IF NOT EXISTS shoppingcart ( " +
-                "  shoppingCartId integer PRIMARY KEY AUTOINCREMENT NOT NULL, " +
-                "  userId varchar(255)   NOT NULL, " +
-                "  shopId varchar(255)   NOT NULL, " +
-                "  goodsId varchar(255)   NOT NULL, " +
-                "  goodsName varchar(255)  NOT NULL, " +
-                "  goodsPrice decimal(10, 2) NOT NULL, " +
-                "  goodsImgUrl varchar(255)  DEFAULT NULL, " +
-                "  goodsCount integer NOT NULL" +
-                ") ";
-        db.execSQL(sql);
+//        String sql = " CREATE TABLE IF NOT EXISTS shoppingcart ( " +
+//                "  shoppingCartId integer PRIMARY KEY AUTOINCREMENT NOT NULL, " +
+//                "  userId varchar(255)   NOT NULL, " +
+//                "  shopId varchar(255)   NOT NULL, " +
+//                "  goodsId varchar(255)   NOT NULL, " +
+//                "  goodsName varchar(255)  NOT NULL, " +
+//                "  goodsPrice decimal(10, 2) NOT NULL, " +
+//                "  goodsImgUrl varchar(255)  DEFAULT NULL, " +
+//                "  goodsCount integer NOT NULL" +
+//                ")";
+//        db.execSQL(sql);
     }
 
     @Override
     public List<ShoppingCart> queryByGoodsByUserIdShopId(Integer userId, Integer shopId) {
         String sql = "select * from shoppingcart where userId = ?" + " and shopId = ?";
-        return query(sql, userId, shopId).stream().map(ShoppingCart::new).collect(Collectors.toList());
+        return query(sql, userId, shopId).stream().map(shoppingCartDTO -> new ShoppingCart(shoppingCartDTO)).collect(Collectors.toList());
     }
 
     @Override
@@ -78,7 +92,7 @@ public class ShoppingCartDaoImpl extends BaseSQLiteHelper<ShoppingCartDTO> imple
         ShoppingCartDTO shoppingCartDTO = new ShoppingCartDTO(shoppingCart);
         ShoppingCart goods = queryOne(shoppingCart);
         if (goods == null) {
-            return insert(shoppingCartDTO);
+            return insert(shoppingCartDTO, tableName);
         } else {
             return updateGoods(shoppingCart, PLUS);
         }

@@ -1,5 +1,7 @@
 package com.jiateng.retrofit.domain;
 
+import static com.jiateng.utils.ToastUtil.ToastShow;
+
 import com.alibaba.fastjson2.JSON;
 import com.jiateng.utils.ToastUtil;
 
@@ -19,17 +21,24 @@ public class ResultUtil {
 
     public static <T> T getResult(Response<ResponseResult<T>> response) {
         ResponseResult<T> body = response.body();
+        if (body == null) {
+            ToastUtil.intenetErrorNotification();
+            return null;
+        }
         if (body.getCode() == 200 || body.getCode() == 201) {
             return body.getData();
         } else if (body.getCode() == 401 || body.getCode() == 403) {
-            ToastUtil.ToastShow("请登录");
+            ToastShow("请登录");
             return null;
         } else {
             return null;
         }
     }
 
-    public static String getResultMsg(Response<ResponseBody> response) {
+    private static Boolean success = true;
+    private static Boolean error = false;
+
+    public static Boolean getResultMsg(Response<ResponseBody> response) {
         String json = null;
         try {
             json = response.body().string();
@@ -37,6 +46,10 @@ public class ResultUtil {
             e.printStackTrace();
         }
         ResponseResult responseResult = JSON.parseObject(json, ResponseResult.class);
-        return responseResult.getMsg();
+        if ("success".equals(responseResult.getMsg())) {
+            return success;
+        } else {
+            return error;
+        }
     }
 }

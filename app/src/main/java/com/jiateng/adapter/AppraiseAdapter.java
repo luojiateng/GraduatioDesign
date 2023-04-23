@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.widget.AppCompatImageView;
 
+import com.iarcuschin.simpleratingbar.SimpleRatingBar;
 import com.jiateng.R;
 import com.jiateng.domain.Appraise;
 import com.squareup.picasso.Picasso;
@@ -29,8 +30,7 @@ public class AppraiseAdapter extends BaseAdapter {
     private AppCompatImageView imageView;
     private TextView username;
     private TextView time;
-    //TODO fix 使用StarBar替换
-    private TextView star;
+    private SimpleRatingBar star;
     private TextView appraiseContext;
 
 
@@ -65,11 +65,10 @@ public class AppraiseAdapter extends BaseAdapter {
         Appraise appraise = data.get(position);
 
         Picasso.get().load(appraise.getOrder().getUser().getAvatarUrl()).fit().into(imageView);
-        username.setText(appraise.getOrder().getUser().getUsername());
+        username.setText(appraise.getOrder().getUser().getNickName());
         time.setText(appraise.getTime());
         appraiseContext.setText(appraise.getContext());
-        star.setText(appraise.getServeScore() + "");
-
+        star.setRating(Float.parseFloat(appraise.getServeScore() + ""));
         return view;
     }
 }

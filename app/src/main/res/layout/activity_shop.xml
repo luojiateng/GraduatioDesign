@@ -23,15 +23,15 @@
             android:scaleType="fitXY"
             android:src="@drawable/ic_arrow_left" />
 
-        <ImageView
-            android:id="@+id/shop_share"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="@dimen/normal_space"
-            android:layout_marginRight="@dimen/normal_space"
-            android:scaleType="fitXY"
-            android:src="@drawable/ic_right" />
+        <!--        <ImageView-->
+        <!--            android:id="@+id/shop_share"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_alignParentRight="true"-->
+        <!--            android:layout_marginTop="@dimen/normal_space"-->
+        <!--            android:layout_marginRight="@dimen/normal_space"-->
+        <!--            android:scaleType="fitXY"-->
+        <!--            android:src="@drawable/ic_right" />-->
 
         <androidx.cardview.widget.CardView
             android:id="@+id/shop_title_icon"
@@ -60,7 +60,6 @@
             android:text="店铺名称"
             android:textColor="#333"
             android:textSize="@dimen/text_phone_title_size" />
-        <!--TODO 星级评分条-->
         <TextView
             android:id="@+id/shop_title_starBar"
             android:layout_width="wrap_content"
@@ -72,6 +71,17 @@
             android:text="评分"
             android:textColor="#333"
             android:textSize="@dimen/text_phone_context_size" />
+
+        <com.iarcuschin.simpleratingbar.SimpleRatingBar
+            android:id="@+id/startBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/shop_title_name"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@id/shop_title_starBar"
+            app:srb_isIndicator="true"
+            app:srb_starSize="18dp" />
 
         <ImageButton
             android:id="@+id/shop_collect"

@@ -1,6 +1,9 @@
 package com.jiateng.activity;
 
+import static com.jiateng.utils.ToastUtil.ToastShow;
+
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +16,7 @@ import android.widget.TextView;
 import com.flipboard.bottomsheet.BottomSheetLayout;
 import com.jiateng.R;
 import com.jiateng.adapter.ShoppingCartAdapter;
-import com.jiateng.common.widget.AppTitleView;
+import com.jiateng.widget.AppTitleView;
 import com.jiateng.db.impl.ShoppingCartDaoImpl;
 import com.jiateng.domain.Shop;
 import com.jiateng.domain.ShoppingCart;
@@ -23,6 +26,7 @@ import com.jiateng.utils.PicassoUtil;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GoodsActivity extends Activity {
@@ -45,6 +49,8 @@ public class GoodsActivity extends Activity {
     private TextView currentGoodsName;
     @ViewInject(R.id.goods_img)
     private ImageView currentGoodsImg;
+    @ViewInject(R.id.goods_settlement)
+    private TextView commit;
 
     private List<ShoppingCart> shoppingCartsData;
     private ShoppingCartDaoImpl shoppingCartImpl;
@@ -93,7 +99,23 @@ public class GoodsActivity extends Activity {
                     goods,
                     1);
             shoppingCartImpl.insertGoods(shoppingCart);
+            initCarData();
+            adapter = new ShoppingCartAdapter(GoodsActivity.this, shoppingCartsData);
             shoppingCartPrice.setText(getShopPrice(shoppingCart));
+            adapter.notifyDataSetChanged();
+        });
+        commit.setOnClickListener(v -> {
+            ArrayList<ShoppingCart> willPaidGoods = (ArrayList<ShoppingCart>) shoppingCartImpl.queryByGoodsByUserIdShopId(userId, shopId);
+            if (willPaidGoods.size() == 0) {
+                ToastShow("请选购商品");
+            } else {
+                Intent intent = new Intent(GoodsActivity.this, PaidActivity.class);
+                Bundle b = new Bundle();
+                b.putSerializable("willPaidGoods", willPaidGoods);
+                intent.putExtras(b);
+                startActivity(intent);
+                finish();
+            }
         });
     }
 
@@ -106,11 +128,11 @@ public class GoodsActivity extends Activity {
      * 从底部滑入
      */
     private void showBottomSheet() {
+        initCarData();
         bottomSheet = createBottomSheetView();
         if (bottomSheetLayout.isSheetShowing()) {
             bottomSheetLayout.dismissSheet();
         } else {
-            initCarData();
             bottomSheetLayout.showWithSheetView(bottomSheet);
         }
     }
@@ -132,7 +154,9 @@ public class GoodsActivity extends Activity {
             bottomSheetLayout.dismissSheet();
             shoppingCartPrice.setText("¥0.0");
         });
+        adapter = new ShoppingCartAdapter(GoodsActivity.this, shoppingCartsData);
         adapter.notifyDataSetChanged();
+        carList.setAdapter(adapter);
         adapter.setOnSelectListener(new ShoppingCartAdapter.OnSelectListener() {
             @Override
             public void onSelectAdd(int position, ShoppingCart shoppingCart) {
@@ -146,10 +170,10 @@ public class GoodsActivity extends Activity {
                 ShoppingCart shoppingCart = shoppingCartsData.get(position);
                 shoppingCartImpl.deleteGoods(shoppingCart);
                 ShoppingCart hasGoods = shoppingCartImpl.queryOne(shoppingCart);
+
                 if (hasGoods == null) {
                     shoppingCartsData.remove(position);
                 }
-
                 shoppingCartPrice.setText(getShopPrice(shoppingCart));
                 adapter.notifyDataSetChanged();
                 if (shoppingCartsData.size() == 0) {
@@ -157,8 +181,6 @@ public class GoodsActivity extends Activity {
                 }
             }
         });
-        carList.setAdapter(adapter);
-
         return view;
     }
 
@@ -168,6 +190,14 @@ public class GoodsActivity extends Activity {
         for (ShoppingCart cart : shoppingCarts) {
             money = money + cart.getGoods().getPrice().doubleValue() * cart.getGoodsCount().intValue();
         }
-        return String.format("%.1f", money);
+        return money == 0.0 ? "0" : String.format("%.1f", money);
+    }
+
+    private String getPriceString(ArrayList<ShoppingCart> shoppingCarts) {
+        double money = 0.0;
+        for (ShoppingCart cart : shoppingCarts) {
+            money = money + cart.getGoods().getPrice().doubleValue() * cart.getGoodsCount().intValue();
+        }
+        return money == 0.0 ? "0" : String.format("%.1f", money);
     }
 }

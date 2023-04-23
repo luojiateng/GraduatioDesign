@@ -8,9 +8,7 @@ import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Part;
 import retrofit2.http.Path;
-import retrofit2.http.Query;
 
 /**
  * @Description:
@@ -25,5 +23,8 @@ public interface ShopApi {
 
     @GET("current/{shopId}")
     Call<ResponseResult<ArrayList<StoreBean.Goods>>> getShopGoods(@Path("shopId") Integer shopId);
+
+    @GET("search/{key}")
+    Call<ResponseResult<ArrayList<Shop>>> searchShop(@Path("key") String key);
 
 }

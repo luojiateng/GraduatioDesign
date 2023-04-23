@@ -3,7 +3,6 @@
     <string name="home">首页</string>
     <string name="order">订单</string>
     <string name="user">用户</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="chooseCity">选择城市</string>
     <string name="GpsError">定位失败</string>
     <string name="choose_city">选择城市</string>
@@ -13,6 +12,16 @@
     <string name="user_item_more">更多功能</string>
     <string name="user_item_start">我的收藏</string>
     <string name="user_item_address">我的地址</string>
-    <string name="user_item_feedback">帮助反馈</string>
+    <string name="user_item_feedback">关于App</string>
     <string name="user_title">用户</string>
+    <string name="title_activity_login"></string>
+    <string name="prompt_email">手机号</string>
+    <string name="prompt_password">密码</string>
+    <string name="action_sign_in">登录</string>
+    <string name="action_sign_in_short">注册</string>
+    <string name="welcome">"欢迎 "</string>
+    <string name="invalid_username">用户名无效</string>
+    <string name="invalid_password">密码必须大于5个字符</string>
+    <string name="login_failed">"登录失败"</string>
+    <string name="repeat_password">密码确认</string>
 </resources>

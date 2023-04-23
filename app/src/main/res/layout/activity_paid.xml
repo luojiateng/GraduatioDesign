@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:TitleView="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context=".activity.PaidActivity">
+
+    <com.jiateng.widget.AppTitleView
+        android:id="@+id/paid_order_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        TitleView:title="确认订单"
+        TitleView:visible="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginLeft="@dimen/middle_space"
+        android:layout_marginTop="@dimen/normal_space"
+        android:layout_marginRight="@dimen/middle_space"
+        android:background="@color/front_color"
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:id="@+id/paid_choose"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/paid_post"
+                style="@style/paidStyle"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:text="外卖配送" />
+
+            <RadioButton
+                android:id="@+id/paid_pickup"
+                style="@style/paidStyle"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:text="食堂自提" />
+
+        </RadioGroup>
+
+        <include layout="@layout/layout_split_horizontal_full" />
+
+        <FrameLayout
+            android:id="@+id/methodsChoose"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/listBorder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/middle_space"
+        android:layout_marginTop="@dimen/normal_space"
+        android:layout_marginRight="@dimen/middle_space"
+        android:background="@color/front_color"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/paid_list"
+            android:layout_width="match_parent"
+            android:layout_height="280dp" />
+
+        <include layout="@layout/layout_split_horizontal_short" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/little_space"
+                android:layout_toLeftOf="@id/money_count"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="合计 ￥" />
+
+            <TextView
+                android:id="@+id/money_count"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/normal_space"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="20"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_phone_title_size" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/comment"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="@dimen/middle_space"
+        android:layout_marginTop="@dimen/little_space"
+        android:layout_marginRight="@dimen/middle_space"
+        android:background="@color/front_color">
+
+        <TextView
+            android:id="@+id/temp_3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="@dimen/normal_space"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="备注"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_phone_title_size" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/little_space"
+            android:layout_toLeftOf="@id/comment_more"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="口味、偏好等要求" />
+
+        <ImageView
+            android:id="@+id/comment_more"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/normal_space"
+            android:src="@drawable/ic_right" />
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="bottom"
+            android:background="@color/front_color">
+
+            <TextView
+                android:id="@+id/temp_1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="@dimen/normal_space"
+                android:gravity="center_vertical"
+                android:text="共计:"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_phone_context_size" />
+
+            <TextView
+                android:id="@+id/temp_2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/normal_space"
+                android:layout_toRightOf="@id/temp_1"
+                android:gravity="center_vertical"
+                android:text="￥"
+                android:textColor="@color/phone_text_red"
+                android:textSize="@dimen/text_phone_context_size" />
+
+            <TextView
+                android:id="@+id/money"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@id/temp_2"
+                android:gravity="center_vertical"
+                android:text="20"
+                android:textColor="@color/phone_text_red"
+                android:textSize="@dimen/text_phone_title_size" />
+
+            <TextView
+                android:id="@+id/commit"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/little_space"
+                android:background="@color/app_main_color"
+                android:gravity="center_vertical"
+                android:text="去支付"
+                android:textColor="@color/button_light"
+                android:textSize="@dimen/text_phone_title_size" />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

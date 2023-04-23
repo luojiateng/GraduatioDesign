@@ -14,9 +14,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="paid">#07c160</color>
     <color name="gray">#696969</color>
+    <color name="sinup">#46a9cf</color>
     <color name="app_main_color">#007ffc</color>
-
+    <color name="gray_e">#eeeeee</color>
     <color name="background">#f6f6f6</color>
     <color name="front_color">#FFFFFFFF</color>
     <color name="split_line">#e5e5e5</color>
@@ -33,4 +35,5 @@
     <color name="phone_text_black">#333</color>
     <color name="phone_text_red">#E91E63</color>
     <color name="appraiseChecked">#1d9fc5</color>
+    <color name="line_blue">#377ffc</color>
 </resources>

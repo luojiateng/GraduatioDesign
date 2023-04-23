@@ -66,7 +66,14 @@ public class OrderAdapter extends BaseAdapter {
         tv_paid.setTag(position);
 
         TextView tv_status = itemView.findViewById(R.id.order_item_status);
-        tv_status.setText(orderList.get(position).getStatus());
+        String status = orderList.get(position).getStatus();
+        if ("订单创建".equals(orderList.get(position).getStatus()) && "post".equals(orderList.get(position).getType())) {
+            tv_status.setText("配送中");
+        } else if ("订单创建".equals(orderList.get(position).getStatus()) && "pickup".equals(orderList.get(position).getType())) {
+            tv_status.setText("等待自提");
+        } else {
+            tv_status.setText("订单完成");
+        }
         tv_status.setTag(position);
 
         TextView tv_time = itemView.findViewById(R.id.order_item_time);
@@ -81,18 +88,18 @@ public class OrderAdapter extends BaseAdapter {
         orderInfo.setTag(position);
 
         shopName.setOnClickListener(v -> {
-            orderItemClickCallBack.clickShopName(v);
+            orderItemClickCallBack.clickShopName(v, position);
         });
         orderInfo.setOnClickListener(v -> {
             //接口回调为内部文本绑定监听事件
-            orderItemClickCallBack.clickOrderInfo(v);
+            orderItemClickCallBack.clickOrderInfo(v, position);
         });
         return itemView;
     }
 
     public interface OrderItemClickCallBack {
-        void clickShopName(View view);
+        void clickShopName(View view, int position);
 
-        void clickOrderInfo(View view);
+        void clickOrderInfo(View view, int position);
     }
 }

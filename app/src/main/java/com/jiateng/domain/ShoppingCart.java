@@ -21,7 +21,7 @@ public class ShoppingCart implements Serializable {
         this.user = new User(Integer.parseInt(shoppingCartDTO.getUserId()));
         this.shop = shop;
         this.goods = new StoreBean.Goods(
-                shoppingCartDTO.getShoppingCartId(),
+               Integer.parseInt(shoppingCartDTO.getGoodsId()),
                 shop,
                 shoppingCartDTO.getGoodsImgUrl(),
                 shoppingCartDTO.getGoodsName(),

@@ -25,41 +25,71 @@
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/drawable-v24/shape_touxiang.xml" value="0.24114583333333334" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/drawable-v24/shape_user_item.xml" value="0.2234375" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/drawable/selector_appraise_all.xml" value="0.24114583333333334" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/drawable/selector_appraise_bar_background.xml" value="0.2234375" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout-w1240dp/activity_login.xml" value="0.2234375" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout-w936dp/activity_login.xml" value="0.165625" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_address_set_up.xml" value="0.264" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_comment.xml" value="0.264" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_evaluate.xml" value="0.264" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_goods.xml" value="0.264" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_home_test.xml" value="0.22083333333333333" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_list_goods_home.xml" value="0.4" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_list_order_home.xml" value="0.264" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_list_shop_home.xml" value="0.4" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_login.xml" value="0.22083333333333333" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_modify_password.xml" value="0.264" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_modify_user_info.xml" value="0.203125" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_order_info.xml" value="0.264" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_paid.xml" value="0.264" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_paid_result.xml" value="0.203125" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_password_modify.xml" value="0.203125" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_search.xml" value="0.4092339979013641" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_search_result.xml" value="0.4" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_setting.xml" value="0.264" />
-        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_shop.xml" value="0.264" />
-        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_user_address.xml" value="0.22083333333333333" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_shop.xml" value="0.4" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_singup.xml" value="0.22083333333333333" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_user_address.xml" value="0.33796296296296297" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_user_feedback.xml" value="0.22083333333333333" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_user_info.xml" value="0.264" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_user_login.xml" value="0.264" />
-        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_user_more.xml" value="0.22083333333333333" />
-        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_user_setting.xml" value="0.22083333333333333" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_user_more.xml" value="0.264" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_user_setting.xml" value="0.2" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_user_star.xml" value="0.22083333333333333" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/activity_welcome.xml" value="0.22083333333333333" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/banner_home.xml" value="0.22083333333333333" />
-        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/fragment_appraise.xml" value="0.264" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/dialog_fragment_order_status.xml" value="0.22083333333333333" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/dialog_order_status.xml" value="0.4" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/fragment_appraise.xml" value="0.536" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/fragment_business.xml" value="0.4" />
-        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/fragment_goods.xml" value="0.264" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/fragment_goods.xml" value="0.2" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/fragment_home.xml" value="0.2074074074074074" />
-        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/fragment_order.xml" value="0.203125" />
-        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/fragment_user.xml" value="0.4" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/fragment_order.xml" value="0.4" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/fragment_order_status.xml" value="0.264" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/fragment_pickup.xml" value="0.264" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/fragment_post.xml" value="0.264" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/fragment_user.xml" value="0.29854368932038833" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/home_banner.xml" value="0.22083333333333333" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/item_address.xml" value="0.264" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/item_cars.xml" value="0.264" />
-        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/item_goods_appraise.xml" value="0.4" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/item_goods_appraise.xml" value="0.5034965034965035" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/item_goods_left.xml" value="0.203125" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/item_goods_right.xml" value="0.264" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/item_home_shop.xml" value="0.2" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/item_home_shop_1.xml" value="0.176" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/item_list_order_order.xml" value="0.4" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/item_list_shop_home.xml" value="0.34210526315789475" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/item_order_goods.xml" value="0.22083333333333333" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/item_order_order.xml" value="0.22083333333333333" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/item_paid_goods.xml" value="0.4" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/item_search.xml" value="0.34256055363321797" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/item_shop_collect.xml" value="0.4" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/item_shop_start.xml" value="0.264" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/layout_bottom_sex.xml" value="0.203125" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/layout_bottom_sheet.xml" value="0.203125" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/layout_split_line_short.xml" value="0.22083333333333333" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/layout_split_vertical_full.xml" value="0.22083333333333333" />
+        <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/search_item.xml" value="0.264" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/sub_split_line.xml" value="0.22083333333333333" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/unit_split_full_line.xml" value="0.22083333333333333" />
         <entry key="..\:/workspace/Android/orderFood/app/src/main/res/layout/unit_split_short_line.xml" value="0.22083333333333333" />

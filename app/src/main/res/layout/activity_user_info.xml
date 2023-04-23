@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:AppTitleView="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context=".activity.UserInfoActivity">
+
+    <com.jiateng.widget.AppTitleView
+        android:id="@+id/title_userInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        AppTitleView:title="个人信息"
+        AppTitleView:visible="true" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/normal_space"
+        android:background="@color/front_color"
+        android:orientation="vertical">
+
+        <include layout="@layout/layout_split_horizontal_full" />
+
+        <LinearLayout
+            android:id="@+id/UserAvatarLinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="left"
+                android:layout_marginLeft="@dimen/normal_space"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="头像"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_phone_title_size" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="right"
+                    android:layout_marginLeft="8dp"
+                    AppTitleView:cardCornerRadius="5dp"
+                    AppTitleView:cardElevation="3dp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/setUserAvatar"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/back_logo" />
+                </androidx.cardview.widget.CardView>
+
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:src="@drawable/ic_arrow_right" />
+        </LinearLayout>
+
+        <include layout="@layout/layout_split_horizontal_full" />
+
+        <LinearLayout
+            android:id="@+id/setUserNameLinear"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="left"
+                android:layout_marginLeft="@dimen/normal_space"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="名字"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_phone_title_size" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:gravity="center_vertical"
+                    android:text="username"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_phone_title_size" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:src="@drawable/ic_arrow_right" />
+        </LinearLayout>
+
+        <include layout="@layout/layout_split_horizontal_full" />
+
+        <LinearLayout
+            android:id="@+id/setUserPhoneLinear"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="left"
+                android:layout_marginLeft="@dimen/normal_space"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="电话"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_phone_title_size" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="51dp"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="@dimen/normal_space"
+                    android:gravity="center_vertical"
+                    android:text="15029835753"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_phone_title_size" />
+
+            </LinearLayout>
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:src="@null" />
+        </LinearLayout>
+
+        <include layout="@layout/layout_split_horizontal_full" />
+
+        <LinearLayout
+            android:id="@+id/setUserGenderLinear"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="left"
+                android:layout_marginLeft="@dimen/normal_space"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="性别"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_phone_title_size" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/user_gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:gravity="center_vertical"
+                    android:text="男"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_phone_title_size" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:src="@drawable/ic_arrow_right" />
+        </LinearLayout>
+
+        <include layout="@layout/layout_split_horizontal_full" />
+
+        <LinearLayout
+            android:id="@+id/modifyPasswordLinear"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="left"
+                android:layout_marginLeft="@dimen/normal_space"
+                android:gravity="center_vertical"
+                android:text="修改密码"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_phone_title_size" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical|right"
+                    android:layout_marginRight="@dimen/normal_space"
+                    android:src="@drawable/ic_right" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <include layout="@layout/layout_split_horizontal_full" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="350dp">
+
+    </LinearLayout>
+
+    <com.flipboard.bottomsheet.BottomSheetLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/userinfoBottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/normal_space"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.flipboard.bottomsheet.BottomSheetLayout>
+</LinearLayout>

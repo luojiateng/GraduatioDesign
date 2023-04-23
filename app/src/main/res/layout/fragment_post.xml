@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/front_color"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/front_color">
+
+        <TextView
+            android:id="@+id/shop_address_info"
+            android:layout_width="260dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="@dimen/large_space"
+            android:layout_marginTop="@dimen/little_space"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="西安石油大学鄠邑校区学生宿舍十七号楼447宿舍"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_phone_title_size" />
+
+        <ImageView
+            android:id="@+id/set_address"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/little_space"
+            android:layout_marginRight="@dimen/normal_space"
+            android:src="@drawable/ic_right" />
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/large_space"
+        android:background="@color/front_color"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/large_space"
+            android:layout_marginBottom="@dimen/normal_space"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="用户名"
+            android:textSize="@dimen/text_phone_context_size" />
+
+        <TextView
+            android:id="@+id/user_phone_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/little_space"
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_marginBottom="@dimen/normal_space"
+            android:text="18023851549"
+            android:textSize="@dimen/text_phone_context_size" />
+    </LinearLayout>
+
+    <include layout="@layout/layout_split_horizontal_short" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/front_color"
+        android:gravity="center"
+        android:text="提示：统一配送方式将会有2元配送费"
+        android:textColor="@color/phone_text_red"
+        android:textSize="@dimen/normal_space" />
+
+</LinearLayout>

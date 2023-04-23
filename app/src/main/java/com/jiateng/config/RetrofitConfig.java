@@ -8,6 +8,6 @@ package com.jiateng.config;
  * @author: 骆家腾
  */
 public class RetrofitConfig {
-    public static final String BASE_HOST = "http://121.43.116.205:8080";
-//    public static final String BASE_HOST = "http://10.129.29.16:8080";
+//    public static final String BASE_HOST = "http://121.43.116.205:8080";
+    public static final String BASE_HOST = "http://10.129.29.16:8081";
 }

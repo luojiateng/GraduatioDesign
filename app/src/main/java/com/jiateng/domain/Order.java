@@ -1,6 +1,7 @@
 package com.jiateng.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * @Description:
@@ -9,25 +10,44 @@ import java.io.Serializable;
  * @date: 2023/1/11 12:56
  * @author: 骆家腾
  */
-public class Order  implements Serializable {
+public class Order implements Serializable {
     private Integer orderId;
     private User user;
     private Shop shop;
-    private Address address;
-    private ShoppingCart shoppingCartList;
+    private AddressInfo addressInfo;
+    private ArrayList<ShoppingCart> shoppingCartList;
     private String status;
     private Double money;
     private String startTimeOfOrder;
     private String remark;
+    private String type;
+
+    public String getEndTimeOfOrder() {
+        return endTimeOfOrder;
+    }
+
+    public void setEndTimeOfOrder(String endTimeOfOrder) {
+        this.endTimeOfOrder = endTimeOfOrder;
+    }
+
+    private String endTimeOfOrder;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     public Order() {
     }
 
-    public Order(Integer orderId, User user, Shop shop, Address address, ShoppingCart shoppingCartList, String status, Double money, String startTimeOfOrder, String remark) {
+    public Order(Integer orderId, User user, Shop shop, AddressInfo addressInfo, ArrayList<ShoppingCart> shoppingCartList, String status, Double money, String startTimeOfOrder, String remark) {
         this.orderId = orderId;
         this.user = user;
         this.shop = shop;
-        this.address = address;
+        this.addressInfo = addressInfo;
         this.shoppingCartList = shoppingCartList;
         this.status = status;
         this.money = money;
@@ -59,19 +79,19 @@ public class Order  implements Serializable {
         this.shop = shop;
     }
 
-    public Address getAddress() {
-        return address;
+    public AddressInfo getAddressInfo() {
+        return addressInfo;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setAddressInfo(AddressInfo addressInfo) {
+        this.addressInfo = addressInfo;
     }
 
-    public ShoppingCart getShoppingCartList() {
+    public ArrayList<ShoppingCart> getShoppingCartList() {
         return shoppingCartList;
     }
 
-    public void setShoppingCartList(ShoppingCart shoppingCartList) {
+    public void setShoppingCartList(ArrayList<ShoppingCart> shoppingCartList) {
         this.shoppingCartList = shoppingCartList;
     }
 
@@ -113,7 +133,7 @@ public class Order  implements Serializable {
                 "orderId=" + orderId +
                 ", user=" + user +
                 ", shop=" + shop +
-                ", address=" + address +
+                ", address=" + addressInfo +
                 ", shoppingCartList=" + shoppingCartList +
                 ", status='" + status + '\'' +
                 ", money=" + money +

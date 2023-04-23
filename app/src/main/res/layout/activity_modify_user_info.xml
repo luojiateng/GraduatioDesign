@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:AppTitleView="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.ModifyUserInfoActivity">
+
+    <com.jiateng.widget.AppTitleView
+        android:id="@+id/modifyUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        AppTitleView:title="更改名字"
+        AppTitleView:visible="true" />
+
+    <EditText
+        android:id="@+id/usernameEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/normal_space" />
+
+    <Button
+        android:id="@+id/update_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/normal_space"
+        android:layout_marginRight="@dimen/normal_space"
+        android:background="@color/app_main_color"
+        android:text="保存"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_phone_title_size" />
+</LinearLayout>

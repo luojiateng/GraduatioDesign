@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/front_color"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/address_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="30dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="取餐地址："
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_phone_title_size" />
+
+        <TextView
+            android:id="@+id/address_shop_get"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/normal_space"
+            android:layout_toRightOf="@id/address_temp"
+            android:gravity="center_vertical"
+            android:text="新食堂二楼17号窗口"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_phone_title_size" />
+
+    </RelativeLayout>
+
+    <include layout="@layout/layout_split_horizontal_short" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="提示：请在食堂工作时间内及时取餐"
+        android:textColor="@color/phone_text_red"
+        android:textSize="@dimen/normal_space" />
+
+</LinearLayout>

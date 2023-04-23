@@ -3,6 +3,10 @@ package com.jiateng.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.jiateng.config.MainApplicationConfig;
+import com.jiateng.domain.User;
+import com.jiateng.domain.UserDTO;
+
 
 public class SharedPreferencesUtil {
     private static SharedPreferences sharedPreferences;
@@ -116,5 +120,55 @@ public class SharedPreferencesUtil {
         sharedPreferences.edit().remove(key).commit();
     }
 
+    public static void putUserInfo(User user) {
+        Context context = MainApplicationConfig.getContext();
+        putInt(context, "userId", user.getUserId());
+        putString(context, "nickName", user.getNickName());
+        putString(context, "avatar", user.getAvatarUrl());
+        putString(context, "phoneNumber", user.getPhoneNumber());
+        putString(context, "username", user.getUsername());
+        putString(context, "sex", user.getSex());
+    }
+
+    public static User getUser() {
+        Context context = MainApplicationConfig.getContext();
+        int userId = getInt(context, "userId", -1);
+        String nickName = getString(context, "nickName", "null");
+        String avatarUrl = getString(context, "avatar", "null");
+        String password = getString(context, "password", "null");
+        String phoneNumber = getString(context, "phoneNumber", "null");
+        String username = getString(context, "username", "null");
+        String sex = getString(context, "sex", "null");
+        return new User(userId, nickName, phoneNumber, password, avatarUrl, username, sex);
+    }
+
+    public static void putUserBaseInfo(UserDTO userDTO) {
+        Context context = MainApplicationConfig.getContext();
+        putInt(context, "userId", userDTO.getUserId());
+        putString(context, "token", userDTO.getToken());
+        putString(context, "phoneNumber", userDTO.getPhoneNumber());
+        putString(context, "nickName", userDTO.getNickName());
+    }
+
+    public static void removeUserBaseInfo() {
+        Context context = MainApplicationConfig.getContext();
+        remove(context, "userId");
+        remove(context, "phoneNumber");
+        remove(context, "nickName");
+        remove(context, "avatar");
+        remove(context, "phoneNumber");
+        remove(context, "token");
+        remove(context, "sex");
+    }
+
+    public static Boolean hasToken() {
+        Context context = MainApplicationConfig.getContext();
+        return !"null".equals(getToken());
+    }
+
+    public static String getToken() {
+        Context context = MainApplicationConfig.getContext();
+        return getString(context, "token", "null");
+    }
 }
 

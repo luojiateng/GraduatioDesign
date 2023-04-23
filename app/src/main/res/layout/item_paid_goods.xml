@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="55dp"
+    android:background="@color/front_color"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp">
+
+    <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/ic_temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="8dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="3dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/paid_goods_icon"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/back_logo" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/paid_goods_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/normal_space"
+        android:layout_toRightOf="@id/ic_temp"
+        android:text="美式咖啡"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_phone_title_size" />
+
+    <TextView
+        android:id="@+id/temp_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/normal_space"
+        android:layout_toRightOf="@id/ic_temp"
+        android:text="×"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_phone_context_size" />
+
+    <TextView
+        android:id="@+id/paid_goods_cound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@id/temp_5"
+        android:text="1"
+        android:textSize="@dimen/text_phone_context_size" />
+
+    <TextView
+        android:id="@+id/temp_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="55dp"
+        android:text="￥"
+        android:textSize="@dimen/text_phone_title_size" />
+
+    <TextView
+        android:id="@+id/goods_count_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/normal_space"
+        android:text="25"
+        android:textSize="@dimen/text_phone_title_size" />
+</RelativeLayout>

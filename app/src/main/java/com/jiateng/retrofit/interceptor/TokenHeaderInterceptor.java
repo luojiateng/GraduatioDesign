@@ -15,9 +15,9 @@ import okhttp3.Response;
 public class TokenHeaderInterceptor implements Interceptor {
     @Override
     public Response intercept(Chain chain) throws IOException {
-//        String token = SharedPreferencesUtil.getString(getContext(), "token", "");
-        String token =
-"eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2NTRjNzYwMDk3ZTU0NTc0YTY0ZTVmNGJjNDg4N2Y4YiIsInN1YiI6IjMiLCJpc3MiOiJsdW8iLCJpYXQiOjE2ODEwMzIzOTMsImV4cCI6MTY4MzYyNDM5M30.N9348hbHLnL2MCoB5Fs3dWPDTsPq8K0HNTkSQEXMp9Q";
+        String token = SharedPreferencesUtil.getString(getContext(), "token", "");
+//        String token =
+//"eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI1ZTkzOWRiZjg5MDI0ZTBlYTllYTYxNGJjM2IzZDIwZSIsInN1YiI6IjEiLCJpc3MiOiJsdW8iLCJpYXQiOjE2ODE2NTA3NDgsImV4cCI6MTY4NDI0Mjc0OH0.FqvakQsOowpArFK9qT7K4KENEjBmSOVp0ge4kqi8KHQ";
         if (token.isEmpty()) {
             Request originalRequest = chain.request();
             return chain.proceed(originalRequest);

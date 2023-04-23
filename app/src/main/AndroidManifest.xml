@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jiateng">
-    <!-- xUtils配置 -->
+
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 位置信息权限 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -9,6 +9,9 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".config.MainApplicationConfig"
@@ -19,6 +22,46 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".activity.EvaluateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ModifyPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.PasswordModifyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ModifyUserInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.AddressSetUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.SingupActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.login.ui.login.LoginActivity"
+            android:exported="false"
+            android:label="@string/title_activity_login" />
+        <activity
+            android:name=".activity.UserInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.CommentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.PaidResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.PaidActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.SearchResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.SearchActivity"
+            android:exported="false" />
         <activity
             android:name=".activity.GoodsActivity"
             android:exported="false" />
@@ -38,7 +81,7 @@
             android:name=".activity.MoreActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.StarActivity"
+            android:name=".activity.CollectActivity"
             android:exported="false" />
         <activity
             android:name=".activity.AddressActivity"

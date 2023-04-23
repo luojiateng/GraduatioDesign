@@ -9,8 +9,8 @@ import android.widget.TextView;
 
 import com.jiateng.R;
 import com.jiateng.adapter.AppraiseAdapter;
-import com.jiateng.common.base.BaseFragment;
-import com.jiateng.domain.Address;
+import com.jiateng.base.BaseFragment;
+import com.jiateng.domain.AddressInfo;
 import com.jiateng.domain.Appraise;
 import com.jiateng.domain.Order;
 import com.jiateng.domain.Shop;
@@ -68,7 +68,9 @@ public class AppraiseFragment extends BaseFragment implements RadioGroup.OnCheck
             Appraise appraise = new Appraise();
             appraise.setAppraiseId(i);
             appraise.setServeScore(4.3);
-            appraise.setOrder(new Order(1, new User(), new Shop(), new Address(), new ShoppingCart(), "", 1.0, "", ""));
+            User user = new User("测试用户");
+            user.setAvatarUrl("https://img1.baidu.com/it/u=3709586903,1286591012&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1682355600&t=52c30d54980ee75f08577afaecaba562");
+            appraise.setOrder(new Order(1, user, new Shop(), new AddressInfo(), new ArrayList<ShoppingCart>(), "", 1.0, "", ""));
             appraise.setTime("2023-02-" + i + "日");
             appraise.setContext("此顾客没有评价！");
             appraise.setType((i % 2 == 0) ? 1 : 0);
